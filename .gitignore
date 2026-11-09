@@ -4,7 +4,7 @@
 .vscode/launch.json
 .vscode/ipch
 h2_firmware/*/build/
-docs/
+docs2/
 __archive/
 h2_firmware/TiltaSnifferH2/
 .DS_Store
