@@ -1,4 +1,4 @@
-# MagicFocus
+# MagicFocus – An Open-Source Lidar Autofocus
 
 🌐 **Website:** [kenfilms.github.io/MagicFocus](https://kenfilms.github.io/MagicFocus/)
 
@@ -15,6 +15,8 @@
 **Customizable characteristics Lidar autofocus** for a **Tilta Nucleus Nano II** focus motor, driven from an **M5Stack Core2** or
 **CoreS3** with a stacked **Module Gateway H2** as the radio.
 
+🛠️ **[Setup and Flashing Guide](#setting-up)**
+
 A **TFmini-S lidar** measures the subject distance, a per-lens calibration curve maps that distance to a
 motor position, and the **Gateway H2** impersonates the **Nucleus Nano II hand wheel ("The Knob") or handle** on
 IEEE 802.15.4 to control the motor. No camera connection is needed, so this works with any camera
@@ -23,7 +25,7 @@ camera setting changed first; see [Focus-by-wire lenses](#focus-by-wire-lenses).
 
 [![MagicFocus on a camera, labelled: the M5Stack CoreS3 runs MagicFocus, with the Gateway H2 and DIN Base stacked under it; the TFmini-S lidar beside it is aimed where the lens points; the Tilta Nucleus Nano II motor turns the focus ring of a Canon RF 24-70mm F2.8, a focus-by-wire lens](images/rig-photo.svg)](images/MagicFocus_cam_overview.jpg)
 
-## Menus and buttons
+## Menus & Buttons
 
 [![The MagicFocus tab on a CoreS3, labelled: the lens slot and name, where holding the name locks the lens; Lidar, the distance to the subject, and Lens, where the lens is focused; Camera, the Blackmagic camera link, Core2 only; and Motor OK, which means the motor answers by radio](images/screen-photo.svg)](images/MagicFocus_closeup_menu.jpg)
 
@@ -33,7 +35,7 @@ the motor turning, faster after a second.
 
 ![Menus and buttons: the MagicFocus, Calib., AF Curve and Good to know pages as they look on the screen, numbered only where something isn't obvious. Hold the lens name for a second to lock or unlock the lens; the number in front of it is its slot in lenses.txt. Tap the battery for volts or percent. On the MagicFocus tab, tap the readout to switch between numbers and a 10-second graph, shown enlarged, of the distance to the subject in orange and the distance the lens is focused at in blue; Camera links a Blackmagic camera on a Core2, which picks the lens even when it is locked; tap the motor status to check the radio again. On the Calib. tab, tap the step for 0.5, 2 or 4 m, where a green dot marks a saved point, hold an arrow to keep the motor turning, and read the motor position in the middle and the lidar distance at the lower left. On the AF Curve tab, each sketch shows how the lens gets to focus, and Speed sets how fast. Drag the Good to know text to scroll. On a Core2, a PIN keypad appears the first time a Blackmagic camera pairs, and holding button C for 2 seconds switches it off](images/menus.svg)
 
-## Why MagicFocus
+## Why MagicFocus?
 
 - **You choose how focus moves.** Five autofocus curves, Snap, Overshoot, Creep, Smooth and Linear,
   each slow or fast, so a focus change looks the way the shot needs. Other lidar autofocus systems
@@ -49,11 +51,11 @@ the motor turning, faster after a second.
 - **You see what it does.** A live graph of the lidar and lens distances, and a radio status that
   shows whether the motor is answering.
 
-## How it works
+## How It Works
 
 ![How MagicFocus works: the lidar measures the distance to the subject, MagicFocus looks it up in the lens's calibration, the Gateway H2 radios the motor position, the Tilta motor turns the focus ring, and the lens focuses on the subject](images/how-it-works.svg)
 
-## Required hardware
+## Required Hardware
 
 * **Tilta Nucleus Nano II motor** (WLC-T05-MK)
 * A follow-focus gear ring on each lens's focus ring. A rubber one works best, such as Tilta's
@@ -109,7 +111,7 @@ The stacked Gateway H2's UART and boot pin land on G35, G14 and G13, which Port 
 lidar, so on a Core2 the serial link is wired to Port A and the module's download header instead;
 the stack connector can still supply power.
 
-## Setting up
+## Setting Up
 
 ![Flashing and setup: 1, flash the H2 through the CoreS3 with Core2Programmer and esptool, or with the ESP32 Downloader on a Core2; 2, flash MagicFocus onto the CoreS3 or Core2, which restarts the H2 into the bridge; 3, set Tilta CH1 on the Knob or handle, pair the motor with its button, switch the Knob or handle off and check that the CoreS3 shows Motor OK; 4, for each lens, set it to MF, on a focus-by-wire lens set the camera's focus ring to rotation degree and disable auto power-off, and calibrate the motor to the lens with its button; 5, for each lens, pick it, save at least two calibration points and test them with AF on](images/setup-steps.svg)
 
@@ -160,7 +162,7 @@ CoreS3 stays in its bootloader; start it with
 **With the ESP32 Downloader.** Also select *Erase All Flash Before Sketch Upload: Enable*, and
 upload through the H2's download header with the ESP32 Downloader. Use this route with a Core2.
 
-### 2. Flash MagicFocus onto the CoreS3 or Core2
+### 2. Flash MagicFocus onto the CoreS3 OR Core2
 
 MagicFocus itself, the firmware in [src](src), runs on the M5Stack CoreS3 or Core2; the H2 only
 runs the bridge from step 1. Connect the CoreS3 or Core2 to the computer by USB-C and upload
@@ -171,7 +173,7 @@ pio run -e m5stack-cores3 -t upload   # CoreS3 (ESP32-S3)
 pio run -e m5stack-core2 -t upload    # Core2 (ESP32)
 ```
 
-### 3. Pair the motor with the Knob or the Control Handle
+### 3. Pair Tte Motor with the Knob OR the Control Handle
 
 The motor needs pairing once, on Tilta **CH1** (802.15.4 channel 12), with either the Nucleus Nano II
 hand wheel ("the Knob") or the Nucleus-N II Control Handle. Both send with the same radio
@@ -197,7 +199,7 @@ Once the Knob or handle is off, the right-hand button on the **MagicFocus** tab 
 **Motor OK** within a second or two. `No motor` means the motor isn't answering: check that it's
 switched on and paired on CH1.
 
-### 4. Set up the camera and lens
+### 4. Set Up The Camera & Lens
 
 Do this for every lens, before calibrating it in [step 5](#5-calibrate-a-lens):
 
@@ -211,7 +213,7 @@ Do this for every lens, before calibrating it in [step 5](#5-calibrate-a-lens):
 3. **Calibrate the motor to the lens's focus ring**, as described next. The motor's range has to
    match this lens's ring, so calibrate it again after changing lenses.
 
-#### Calibrating the motor to the lens
+#### Calibrating the Motor to the Lens
 
 Long-press the motor's button for about 3 seconds. The motor then turns the focus ring to both
 ends of the lens, until it meets the hard stops, and keeps that range. MagicFocus's positions are
@@ -229,7 +231,7 @@ both ends, exactly where the lens reaches close focus and infinity:
     **Object Distance (Bar)** under **Custom Display 1** on page 5 of the **Monitoring Setup**
     menu.
 
-### 5. Calibrate a lens
+### 5. Calibrate a Lens
 
 Each lens has its own calibration slot, numbered 1 to 8 in the ring beside its name; pick it with
 the arrows on either side. Hold the lens name for a second to lock the lens: a red padlock appears
@@ -328,7 +330,7 @@ The **i** left of the battery opens a page with the things to remember: the lens
 settings, pairing and calibrating the motor, and calibrating a lens. Drag the text to scroll, and
 tap **×**, the **i** or a tab to close it.
 
-## Focus curves
+## Focus Curves
 
 On the **AF Curve** tab, choose how autofocus moves to each new distance. Each button shows a sketch
 of the move, and MagicFocus remembers the choice.
@@ -344,7 +346,7 @@ of the move, and MagicFocus remembers the choice.
 The **Speed** button on the **MagicFocus** tab makes every curve slow or fast. The speeds, and how
 far Overshoot and Creep stop from the goal, are set in [src/Config.h](src/Config.h).
 
-## Focus-by-wire lenses
+## Focus-By-Wire Lenses
 
 Many mirrorless lenses, Canon's RF lenses among them, focus by wire: the focus ring isn't connected
 to the glass, it only reports how it turns, and the lens's own motor moves the focus. The ring has
@@ -370,7 +372,7 @@ Before calibrating such a lens:
    end of focus is lost and shifts every position after it.
 4. Then save MagicFocus's calibration points as in [step 5](#5-calibrate-a-lens) above.
 
-## Protocol notes
+## Protocol Notes
 
 The air protocol was reverse engineered by
 [strawlab/tilta-n2-control](https://github.com/strawlab/tilta-n2-control). The PAN id, source
@@ -414,7 +416,7 @@ Earlier versions of this project drove the autofocus motor built into Canon EF l
 Blackmagic Pocket Cinema Camera 6K over Bluetooth LE. So far, many tests have shown
 a considerable calibration drift within a short time, rendering this method unpractical for now.
 
-## Work in progress
+## Work in Progress
 
 - Compatibility with other focus motors besides the Tilta Nucleus Nano II.
 - More tests with different lenses.
