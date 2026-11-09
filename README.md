@@ -1,5 +1,7 @@
 # MagicFocus
 
+🌐 **Website:** [kenfilms.github.io/MagicFocus](https://kenfilms.github.io/MagicFocus/)
+
 ![M5Unified: 0.2.25](https://img.shields.io/badge/M5Unified-0.2.25-green)
 ![arduino-esp32: 3.3.12](https://img.shields.io/badge/arduino--esp32-3.3.12-green)
 ![platform: M5Stack CoreS3 & Core2](https://img.shields.io/badge/platform-M5Stack%20CoreS3%20%26%20Core2-blue)

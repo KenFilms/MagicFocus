@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MagicFocus – Lidar Autofocus for the Tilta Nucleus Nano II (ESP32 / M5Stack)</title>
+  <meta name="description" content="Free open-source lidar autofocus for any lens with a focus gear. An M5Stack CoreS3 or Core2 reads a TFmini-S lidar and drives a Tilta Nucleus Nano II focus motor by radio, with no camera connection and five focus curves.">
+  <meta name="keywords" content="lidar autofocus, Tilta Nucleus Nano II autofocus, follow focus autofocus, autofocus for manual lenses, TFmini-S lidar, M5Stack CoreS3, M5Stack Core2, ESP32-H2, focus motor, open source autofocus, cinema autofocus">
+  <meta name="author" content="KenFilms">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0b0e">
+  <link rel="canonical" href="https://kenfilms.github.io/MagicFocus/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MagicFocus">
+  <meta property="og:title" content="MagicFocus – Lidar Autofocus for the Tilta Nucleus Nano II">
+  <meta property="og:description" content="Open-source lidar autofocus for any lens with a focus gear: an M5Stack CoreS3 or Core2 drives a Tilta Nucleus Nano II motor by radio, with five focus curves and no camera connection.">
+  <meta property="og:url" content="https://kenfilms.github.io/MagicFocus/">
+  <meta property="og:image" content="https://kenfilms.github.io/MagicFocus/images/social-preview.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="MagicFocus on an M5Stack CoreS3 showing the lidar and lens distances, AF on and Motor OK">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MagicFocus – Lidar Autofocus for the Tilta Nucleus Nano II">
+  <meta name="twitter:description" content="Open-source lidar autofocus for any lens with a focus gear, built on ESP32 / M5Stack.">
+  <meta name="twitter:image" content="https://kenfilms.github.io/MagicFocus/images/social-preview.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://kenfilms.github.io/MagicFocus/#software",
+        "name": "MagicFocus",
+        "description": "Open-source lidar autofocus firmware for a Tilta Nucleus Nano II focus motor, running on ESP32-based M5Stack CoreS3 and Core2 devices with an M5Stack Module Gateway H2 as the radio and a Benewake TFmini-S lidar.",
+        "url": "https://kenfilms.github.io/MagicFocus/",
+        "downloadUrl": "https://github.com/KenFilms/MagicFocus",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Lidar autofocus",
+        "operatingSystem": "ESP32 (M5Stack CoreS3, Core2)",
+        "image": "https://kenfilms.github.io/MagicFocus/images/social-preview.jpg",
+        "license": "https://www.gnu.org/licenses/lgpl-3.0.html",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "KenFilms", "url": "https://github.com/KenFilms" },
+        "featureList": [
+          "Five autofocus curves, Snap, Overshoot, Creep, Smooth and Linear, each slow or fast",
+          "Works with any camera: the lidar measures the distance itself",
+          "Drives a stock Tilta Nucleus Nano II motor by radio, with no modification and no cable",
+          "Per-lens calibration by eye, interpolated between the saved points",
+          "Live graph of the lidar and lens distances and a radio status for the motor"
+        ]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "name": "MagicFocus source code",
+        "codeRepository": "https://github.com/KenFilms/MagicFocus",
+        "programmingLanguage": ["C++", "Arduino"],
+        "runtimePlatform": "ESP32",
+        "license": "https://www.gnu.org/licenses/lgpl-3.0.html",
+        "targetProduct": { "@id": "https://kenfilms.github.io/MagicFocus/#software" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does MagicFocus need a connection to the camera?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. The TFmini-S lidar measures the distance to the subject itself, and MagicFocus drives the focus motor by radio, so it works with any camera." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which lenses work with MagicFocus?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Any lens that takes a follow-focus gear on its focus ring. Focus-by-wire lenses, such as Canon's RF lenses, work too once one camera setting is changed." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which focus motor does MagicFocus drive?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A stock Tilta Nucleus Nano II motor, by radio, the way its own hand wheel does. You need the Nucleus Nano II hand wheel or the Nucleus-N II Control Handle once, to pair the motor, and then switch it off." }
+          },
+          {
+            "@type": "Question",
+            "name": "What hardware do I need?",
+            "acceptedAnswer": { "@type": "Answer", "text": "An M5Stack CoreS3 (recommended) or Core2, an M5Stack Module Gateway H2, a Benewake TFmini-S lidar, a microSD card, the Tilta Nucleus Nano II motor and a focus gear ring for each lens. The M5Stack DIN Base is optional." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I calibrate a lens?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Aim the lidar at a subject, focus it by eye with the camera's focus aids, and save the point on the Calib. tab. With two or more points saved, MagicFocus interpolates between them." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is MagicFocus free?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. MagicFocus is open-source firmware licensed under the LGPL-3.0." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root { color-scheme: dark; --bg: #0b0b0e; --panel: #16161b; --line: #2b2b33; --text: #ececf0; --muted: #a8a8b3;
+            --accent: #eb6834; --accent-strong: #c2501c; --link: #f2915f; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
+    a { color: var(--link); }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    header, main, footer { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+    header { padding-top: 48px; text-align: center; }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; margin: 0 0 12px; }
+    h2 { margin-top: 56px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 720px; margin: 0 auto 24px; }
+    .btn { display: inline-block; margin: 6px; padding: 12px 22px; border-radius: 8px; background: var(--accent-strong); color: #fff; text-decoration: none; font-weight: 600; }
+    .btn.secondary { background: transparent; border: 1px solid var(--accent); color: var(--text); }
+    img { max-width: 100%; height: auto; border-radius: 12px; display: block; }
+    figure { margin: 32px 0; }
+    figcaption { color: var(--muted); font-size: .9rem; text-align: center; margin-top: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+    .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    li { margin: 4px 0; }
+    details { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+    summary { cursor: pointer; font-weight: 600; }
+    footer { margin-top: 64px; padding-bottom: 40px; color: var(--muted); font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MagicFocus: Lidar Autofocus for the Tilta Nucleus Nano II Focus Motor</h1>
+    <p class="lead">A free, open-source autofocus for any lens with a focus gear, where <strong>you choose how focus moves</strong>. An <strong>M5Stack CoreS3 or Core2</strong> reads a <strong>TFmini-S lidar</strong> and drives a <strong>Tilta Nucleus Nano II</strong> motor by radio through a <strong>Gateway H2</strong>. Nothing connects to the camera, so it works with any camera.</p>
+    <a class="btn" href="https://github.com/KenFilms/MagicFocus">View on GitHub</a>
+    <a class="btn secondary" href="https://github.com/KenFilms/MagicFocus#setting-up">Setup guide</a>
+  </header>
+
+  <main>
+    <figure>
+      <a href="images/rig-photo.svg"><img src="images/rig-photo.svg" width="960" height="640" fetchpriority="high"
+           alt="MagicFocus on a camera, labelled: the M5Stack CoreS3 runs MagicFocus, with the Gateway H2 and DIN Base stacked under it; the TFmini-S lidar beside it is aimed where the lens points; the Tilta Nucleus Nano II motor turns the focus ring of a Canon RF 24-70mm F2.8, a focus-by-wire lens"></a>
+      <figcaption>MagicFocus on a camera rig, with a Canon RF 24-70mm F2.8.</figcaption>
+    </figure>
+
+    <section id="features">
+      <h2>Why MagicFocus</h2>
+      <div class="grid">
+        <div class="card"><h3>🎚️ You choose how focus moves</h3><p>Five autofocus curves, Snap, Overshoot, Creep, Smooth and Linear, each slow or fast, so a focus change looks the way the shot needs.</p></div>
+        <div class="card"><h3>🎥 Any camera, almost any lens</h3><p>The lidar measures the distance itself, so nothing connects to the camera. Focus-by-wire lenses work too, with one camera setting.</p></div>
+        <div class="card"><h3>📡 The motor you already have</h3><p>MagicFocus drives a stock Tilta Nucleus Nano II motor by radio, as its own hand wheel does: no modification, and no cable to the motor.</p></div>
+        <div class="card"><h3>🧩 Off-the-shelf parts</h3><p>An M5Stack CoreS3 or Core2, a Gateway H2 module and a TFmini-S lidar. A CoreS3 even flashes the H2 stacked on it.</p></div>
+        <div class="card"><h3>🎯 Calibrated by eye, lens by lens</h3><p>Focus each lens at a few distances with the camera's focus aids and save; MagicFocus interpolates between the points.</p></div>
+        <div class="card"><h3>📈 You see what it does</h3><p>A live graph of the lidar and lens distances, and a radio status that shows whether the motor is answering.</p></div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <h2>How it works</h2>
+      <figure>
+        <a href="images/how-it-works.svg"><img src="images/how-it-works.svg" width="960" height="821" loading="lazy"
+             alt="How MagicFocus works: the lidar measures the distance to the subject, MagicFocus looks it up in the lens's calibration, the Gateway H2 radios the motor position, the Tilta motor turns the focus ring, and the lens focuses on the subject"></a>
+        <figcaption>From the lidar's distance to the lens's focus ring, by radio.</figcaption>
+      </figure>
+    </section>
+
+    <section id="screen">
+      <h2>On the screen</h2>
+      <figure>
+        <a href="images/screen-photo.svg"><img src="images/screen-photo.svg" width="960" height="659" loading="lazy"
+             alt="The MagicFocus tab on a CoreS3, labelled: the lens slot and name, where holding the name locks the lens; Lidar, the distance to the subject, and Lens, where the lens is focused; Camera, the Blackmagic camera link, Core2 only; and Motor OK, which means the motor answers by radio"></a>
+        <figcaption>The MagicFocus tab: the lens, the lidar and lens distances, autofocus and the motor's radio status.</figcaption>
+      </figure>
+    </section>
+
+    <section id="focus-curves">
+      <h2>Focus curves</h2>
+      <p>On the <strong>AF Curve</strong> tab, choose how autofocus moves to each new distance. The <strong>Speed</strong> button makes every curve slow or fast.</p>
+      <table>
+        <thead><tr><th>Curve</th><th>How focus moves to the new distance</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Snap</strong></td><td>Straight there in one move</td></tr>
+          <tr><td><strong>Overshoot</strong></td><td>A little past it, then back</td></tr>
+          <tr><td><strong>Creep</strong></td><td>Stops just short of it, then makes the last small move</td></tr>
+          <tr><td><strong>Smooth</strong></td><td>Glides there, easing in and out</td></tr>
+          <tr><td><strong>Linear</strong></td><td>Glides there at a constant speed</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="hardware">
+      <h2>Hardware</h2>
+      <ul>
+        <li><strong>Tilta Nucleus Nano II motor</strong> (WLC-T05-MK), with a follow-focus gear ring on each lens's focus ring</li>
+        <li><strong>Tilta Nucleus Nano II hand wheel</strong> ("The Knob") or <strong>Nucleus-N II Control Handle</strong>: needed once, to pair the motor</li>
+        <li><strong>M5Stack CoreS3</strong> (recommended) or <strong>Core2</strong>, which runs MagicFocus</li>
+        <li><strong>M5Stack Module Gateway H2</strong>, the radio to the motor</li>
+        <li><strong>Benewake TFmini-S lidar</strong></li>
+        <li><strong>microSD card</strong> for the lens list and calibration points</li>
+        <li>Optional: the <strong>M5Stack DIN Base</strong>, for battery power, an on/off switch and ports for the lidar</li>
+      </ul>
+      <figure>
+        <a href="images/lidar-photo.svg"><img src="images/lidar-photo.svg" width="960" height="460" loading="lazy"
+             alt="The TFmini-S lidar on a small mount beside the CoreS3, labelled: aim the lidar where the lens points; its cable is red 5 V, black GND, green TX and white RX; the CoreS3 runs MagicFocus, with the Gateway H2 and DIN Base stacked under it"></a>
+        <figcaption>The lidar beside the CoreS3, aimed where the lens points.</figcaption>
+      </figure>
+    </section>
+
+    <section id="setup">
+      <h2>Setting up</h2>
+      <p>Steps 1 to 3 are done once, steps 4 and 5 for each lens. The <a href="https://github.com/KenFilms/MagicFocus#setting-up">setup guide</a> has the details.</p>
+      <ol>
+        <li><a href="https://github.com/KenFilms/MagicFocus#1-flash-the-gateway-h2">Flash the Gateway H2</a></li>
+        <li><a href="https://github.com/KenFilms/MagicFocus#2-flash-magicfocus-onto-the-cores3-or-core2">Flash MagicFocus onto the CoreS3 or Core2</a></li>
+        <li><a href="https://github.com/KenFilms/MagicFocus#3-pair-the-motor-with-the-knob-or-the-control-handle">Pair the motor with the Knob or the Control Handle</a></li>
+        <li><a href="https://github.com/KenFilms/MagicFocus#4-set-up-the-camera-and-lens">Set up the camera and lens</a></li>
+        <li><a href="https://github.com/KenFilms/MagicFocus#5-calibrate-a-lens">Calibrate a lens</a></li>
+      </ol>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently asked questions</h2>
+      <details open>
+        <summary>Does MagicFocus need a connection to the camera?</summary>
+        <p>No. The TFmini-S lidar measures the distance to the subject itself, and MagicFocus drives the focus motor by radio, so it works with any camera.</p>
+      </details>
+      <details>
+        <summary>Which lenses work with MagicFocus?</summary>
+        <p>Any lens that takes a follow-focus gear on its focus ring. Focus-by-wire lenses, such as Canon's RF lenses, work too once one camera setting is changed; see <a href="https://github.com/KenFilms/MagicFocus#focus-by-wire-lenses">Focus-by-wire lenses</a>.</p>
+      </details>
+      <details>
+        <summary>Which focus motor does MagicFocus drive?</summary>
+        <p>A stock Tilta Nucleus Nano II motor, by radio, the way its own hand wheel does. You need the Nucleus Nano II hand wheel or the Nucleus-N II Control Handle once, to pair the motor, and then switch it off.</p>
+      </details>
+      <details>
+        <summary>What hardware do I need?</summary>
+        <p>An M5Stack CoreS3 (recommended) or Core2, an M5Stack Module Gateway H2, a Benewake TFmini-S lidar, a microSD card, the Tilta Nucleus Nano II motor and a focus gear ring for each lens. The M5Stack DIN Base is optional.</p>
+      </details>
+      <details>
+        <summary>How do I calibrate a lens?</summary>
+        <p>Aim the lidar at a subject, focus it by eye with the camera's focus aids, and save the point on the Calib. tab. With two or more points saved, MagicFocus interpolates between them.</p>
+      </details>
+      <details>
+        <summary>Is MagicFocus free?</summary>
+        <p>Yes. MagicFocus is open-source firmware licensed under the <a href="https://github.com/KenFilms/MagicFocus/blob/main/LICENSE">LGPL-3.0</a>.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p>⚠️ Use at your own risk. MagicFocus is provided "as is" without warranty. There have been reports of automotive lidar sensors damaging camera sensors; while the TFmini-S is believed to be harmless, this cannot be ruled out. See the <a href="https://github.com/KenFilms/MagicFocus#disclaimer">full disclaimer</a>.</p>
+    <p>MagicFocus is an independent open-source project and is not affiliated with, endorsed by, or sponsored by Tilta, M5Stack, Benewake, Canon, or Blackmagic Design. Tilta, Nucleus, M5Stack, Benewake, TFmini, Canon, Blackmagic Design, Blackmagic Pocket Cinema Camera, BMPCC, and related names and trademarks are the property of their respective owners.</p>
+    <p>© KenFilms · <a href="https://github.com/KenFilms/MagicFocus">github.com/KenFilms/MagicFocus</a></p>
+  </footer>
+</body>
+</html>
