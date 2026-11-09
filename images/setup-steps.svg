@@ -1,0 +1,294 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="962" viewBox="0 0 960 962" role="img" aria-labelledby="title desc">
+<title id="title">Flashing and Setup</title>
+<desc id="desc">Flashing and setup steps for MagicFocus; steps 1 to 3 are done once, steps 4 and 5 for each lens. Each step starts with a drawing of the device it is done on. 1, on the CoreS3, Gateway H2 and DIN Base stack, flash the H2 through the CoreS3: export the bridge binary from the Arduino IDE, upload Core2Programmer to the CoreS3, and write the H2 with esptool over USB; with a Core2, use the ESP32 Downloader instead. 2, on the same stack, flash MagicFocus onto the CoreS3 or Core2 with pio run -t upload; the H2 then restarts into the bridge firmware. 3, pair the motor, in three lanes, the Knob or Control Handle, the motor and the stack: 3a, on the Knob or handle, set Tilta CH1; 3b, on the motor, with its LED pink, double-click its button to pair; 3c, back on the Knob or handle, switch it off, marked as important: left on, its signals conflict with the H2's; 3d, on the stack, check that the MagicFocus tab shows Motor OK. 4, set up the camera and lens, in two lanes, the camera and lens above the motor: 4a, set the lens to MF with its AF/MF switch; 4b, on focus-by-wire lenses only, set the camera's focus ring to linked to rotation degree and disable its auto power-off; 4c, on the motor, hold its button for 3 seconds to calibrate it to the lens, and on a lens without end stops, stop the motor at both ends yourself. 5, on the stack, calibrate each lens: pick it with the arrows or a lenses.txt list, then on the Calib. tab aim the lidar, focus and save at least two points, and test the calibration with AF on, on the MagicFocus tab.</desc>
+<style>.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif}.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace}</style>
+<rect x="0.5" y="0.5" width="959" height="961" rx="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="34.0" y="40.0" font-size="22" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Flashing and Setup</text>
+<text x="34.0" y="62.0" font-size="13" class="sans" text-anchor="start" fill="#52514e">Steps 1 to 3 once, steps 4 and 5 for each lens.</text>
+<line x1="45.0" y1="106.0" x2="45.0" y2="840.0" stroke="#ecebe6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="45.0" cy="101.0" r="11" fill="#0b0b0b" stroke="none" stroke-width="1"/>
+<text x="45.0" y="105.5" font-size="12.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+<text x="64.0" y="106.0" font-size="15" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Flash the H2 through the CoreS3</text>
+<g transform="translate(98 144) scale(1) translate(-98 -144)">
+<rect x="75" y="159" width="6" height="4" rx="1" fill="#52514e" stroke="none" stroke-width="1"/>
+<rect x="104" y="159" width="6" height="4" rx="1" fill="#52514e" stroke="none" stroke-width="1"/>
+<polygon points="111.50,133.00 122.50,125.00 122.50,137.00 111.50,145.00" fill="#d9d8d1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="133" width="38" height="12" rx="0" fill="#efeee9" stroke="none" stroke-width="1"/>
+<polygon points="111.50,145.00 122.50,137.00 122.50,142.00 111.50,150.00" fill="#c9daf1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="145" width="38" height="5" rx="0" fill="#e4eefa" stroke="none" stroke-width="1"/>
+<polygon points="111.50,150.00 122.50,142.00 122.50,152.00 111.50,160.00" fill="#d9d8d1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="150" width="38" height="10" rx="0" fill="#efeee9" stroke="none" stroke-width="1"/>
+<polygon points="73.50,133.00 84.50,125.00 122.50,125.00 111.50,133.00" fill="#efeee9" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="80.20,131.40 109.20,131.40 116.35,126.20 87.35,126.20" fill="#0b0b0b" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="79.5" y="152.5" width="26" height="5" rx="1" fill="#ffffff" stroke="none" stroke-width="1"/>
+<line x1="73.5" y1="145.0" x2="111.5" y2="145.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="111.5" y1="145.0" x2="122.5" y2="137.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="73.5" y1="150.0" x2="111.5" y2="150.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="111.5" y1="150.0" x2="122.5" y2="142.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<polygon points="73.50,133.00 84.50,125.00 122.50,125.00 122.50,152.00 111.50,160.00 73.50,160.00" fill="none" stroke="#52514e" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M73.50 133.00 H111.50 L122.50 125.00 M111.50 133.00 V160.00" fill="none" stroke="#52514e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="98.0" y="176.0" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">CoreS3 + H2</text>
+<text x="98.0" y="188.5" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">+ DIN Base</text>
+<rect x="152" y="120" width="152" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<path d="M171 137.0 h15 l7 7 v21 h-22 z" fill="#ffffff" stroke="#52514e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M186 137.0 v7 h7" fill="none" stroke="#52514e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="182.0" y="158.5" font-size="8.5" class="mono" text-anchor="middle" fill="#52514e" font-weight="700">bin</text>
+<text x="208.0" y="146.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Export binary</text>
+<text x="208.0" y="164.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">Arduino IDE</text>
+<path d="M312.0 145.0 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="326" y="120" width="184" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="342" y="154" width="28" height="11" rx="3" fill="#efeee9" stroke="#52514e" stroke-width="1.6"/>
+<line x1="356.0" y1="138.0" x2="356.0" y2="150.0" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<path d="M351 145.0 l5 5 l5 -5" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="382.0" y="146.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Core2Programmer</text>
+<text x="382.0" y="164.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">upload to the CoreS3</text>
+<path d="M518.0 145.0 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="532" y="120" width="180" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="547" y="139" width="30" height="24" rx="3.5" fill="#0b0b0b" stroke="none" stroke-width="1"/>
+<text x="552.0" y="155.0" font-size="11" class="mono" text-anchor="start" fill="#ffffff" font-weight="700">&gt;_</text>
+<text x="588.0" y="146.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">esptool</text>
+<text x="588.0" y="164.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">write the H2 via USB</text>
+<text x="730.0" y="155.0" font-size="12" class="sans" text-anchor="middle" fill="#898781">or</text>
+<rect x="748" y="120" width="150" height="62" rx="8" fill="#ffffff" stroke="#c3c2b7" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="762.0" y="146.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">ESP32 Downloader</text>
+<text x="762.0" y="164.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">with a Core2</text>
+<circle cx="45.0" cy="217.0" r="11" fill="#0b0b0b" stroke="none" stroke-width="1"/>
+<text x="45.0" y="221.5" font-size="12.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">2</text>
+<text x="64.0" y="222.0" font-size="15" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Flash MagicFocus onto the CoreS3 or Core2</text>
+<g transform="translate(98 260) scale(1) translate(-98 -260)">
+<rect x="75" y="275" width="6" height="4" rx="1" fill="#52514e" stroke="none" stroke-width="1"/>
+<rect x="104" y="275" width="6" height="4" rx="1" fill="#52514e" stroke="none" stroke-width="1"/>
+<polygon points="111.50,249.00 122.50,241.00 122.50,253.00 111.50,261.00" fill="#d9d8d1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="249" width="38" height="12" rx="0" fill="#efeee9" stroke="none" stroke-width="1"/>
+<polygon points="111.50,261.00 122.50,253.00 122.50,258.00 111.50,266.00" fill="#c9daf1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="261" width="38" height="5" rx="0" fill="#e4eefa" stroke="none" stroke-width="1"/>
+<polygon points="111.50,266.00 122.50,258.00 122.50,268.00 111.50,276.00" fill="#d9d8d1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="266" width="38" height="10" rx="0" fill="#efeee9" stroke="none" stroke-width="1"/>
+<polygon points="73.50,249.00 84.50,241.00 122.50,241.00 111.50,249.00" fill="#efeee9" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="80.20,247.40 109.20,247.40 116.35,242.20 87.35,242.20" fill="#0b0b0b" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="79.5" y="268.5" width="26" height="5" rx="1" fill="#ffffff" stroke="none" stroke-width="1"/>
+<line x1="73.5" y1="261.0" x2="111.5" y2="261.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="111.5" y1="261.0" x2="122.5" y2="253.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="73.5" y1="266.0" x2="111.5" y2="266.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="111.5" y1="266.0" x2="122.5" y2="258.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<polygon points="73.50,249.00 84.50,241.00 122.50,241.00 122.50,268.00 111.50,276.00 73.50,276.00" fill="none" stroke="#52514e" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M73.50 249.00 H111.50 L122.50 241.00 M111.50 249.00 V276.00" fill="none" stroke="#52514e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="98.0" y="292.0" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">CoreS3 + H2</text>
+<text x="98.0" y="304.5" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">+ DIN Base</text>
+<rect x="152" y="236" width="204" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="168" y="270" width="28" height="11" rx="3" fill="#efeee9" stroke="#52514e" stroke-width="1.6"/>
+<line x1="182.0" y1="254.0" x2="182.0" y2="266.0" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<path d="M177 261.0 l5 5 l5 -5" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="208.0" y="262.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Upload MagicFocus</text>
+<text x="208.0" y="280.0" font-size="11.5" class="mono" text-anchor="start" fill="#52514e">pio run -t upload</text>
+<path d="M364.0 261.0 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="378" y="236" width="164" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<path d="M414.25 256.17 A12.5 12.5 0 1 1 401.75 256.17" fill="none" stroke="#2a78d6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M404.78 254.42 L402.45 260.39 L398.45 253.46 z" fill="#2a78d6"/>
+<text x="408.0" y="270.5" font-size="9.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="700">H2</text>
+<text x="434.0" y="262.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">H2 restarts</text>
+<text x="434.0" y="280.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">into the bridge</text>
+<circle cx="45.0" cy="333.0" r="11" fill="#0b0b0b" stroke="none" stroke-width="1"/>
+<text x="45.0" y="337.5" font-size="12.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">3</text>
+<text x="64.0" y="338.0" font-size="15" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Pair the motor</text>
+<g transform="translate(98 376) scale(1.2) translate(-98 -376)">
+<circle cx="88.0" cy="377.0" r="10.5" fill="#efeee9" stroke="#52514e" stroke-width="1.6"/>
+<line x1="95.4" y1="377.0" x2="97.9" y2="377.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="95.0" y1="379.5" x2="97.3" y2="380.4" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="93.7" y1="381.8" x2="95.6" y2="383.4" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="91.7" y1="383.4" x2="93.0" y2="385.6" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="89.3" y1="384.3" x2="89.7" y2="386.7" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="86.7" y1="384.3" x2="86.3" y2="386.7" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="84.3" y1="383.4" x2="83.0" y2="385.6" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="82.3" y1="381.8" x2="80.4" y2="383.4" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="81.0" y1="379.5" x2="78.7" y2="380.4" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="80.6" y1="377.0" x2="78.1" y2="377.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="81.0" y1="374.5" x2="78.7" y2="373.6" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="82.3" y1="372.2" x2="80.4" y2="370.6" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="84.3" y1="370.6" x2="83.0" y2="368.4" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="86.7" y1="369.7" x2="86.3" y2="367.3" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="89.3" y1="369.7" x2="89.7" y2="367.3" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="91.7" y1="370.6" x2="92.9" y2="368.4" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="93.7" y1="372.2" x2="95.6" y2="370.6" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="95.0" y1="374.5" x2="97.3" y2="373.6" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<circle cx="88.0" cy="377.0" r="6.2" fill="#ffffff" stroke="#52514e" stroke-width="1.4"/>
+<line x1="88.0" y1="372.8" x2="88.0" y2="376.4" stroke="#52514e" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M107 366.5 h9 v19.5 a4.5 4.5 0 0 1 -9 0 q-2.8 -2.5 0 -5 q-2.8 -2.5 0 -5 q-2.8 -2.5 0 -5 z" fill="#efeee9" stroke="#52514e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="104" y="360.5" width="15" height="6" rx="1.5" fill="#ffffff" stroke="#52514e" stroke-width="1.4"/>
+<line x1="107.2" y1="362.0" x2="107.2" y2="365.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="110.1" y1="362.0" x2="110.1" y2="365.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="113.0" y1="362.0" x2="113.0" y2="365.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="115.9" y1="362.0" x2="115.9" y2="365.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<circle cx="112.5" cy="372.0" r="1.7" fill="#52514e" stroke="none" stroke-width="1"/>
+</g>
+<text x="98.0" y="408.0" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Knob or handle</text>
+<g transform="translate(98 462) scale(1.2) translate(-98 -462)">
+<rect x="84" y="448" width="22" height="24" rx="4" fill="#efeee9" stroke="#52514e" stroke-width="1.6"/>
+<rect x="87" y="452" width="3" height="12" rx="1.5" fill="#e87ba4" stroke="none" stroke-width="1"/>
+<circle cx="106.0" cy="470.0" r="9.2" fill="none" stroke="#52514e" stroke-width="2.6" stroke-dasharray="1.8 1.8"/>
+<circle cx="106.0" cy="470.0" r="7.6" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<circle cx="106.0" cy="470.0" r="2" fill="#52514e" stroke="none" stroke-width="1"/>
+<circle cx="97.5" cy="455.0" r="4.8" fill="none" stroke="#2a78d6" stroke-width="1.2"/>
+<circle cx="97.5" cy="455.0" r="2.6" fill="#2a78d6" stroke="none" stroke-width="1"/>
+</g>
+<text x="98.0" y="496.0" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Motor</text>
+<g transform="translate(98 552) scale(1) translate(-98 -552)">
+<rect x="75" y="567" width="6" height="4" rx="1" fill="#52514e" stroke="none" stroke-width="1"/>
+<rect x="104" y="567" width="6" height="4" rx="1" fill="#52514e" stroke="none" stroke-width="1"/>
+<polygon points="111.50,541.00 122.50,533.00 122.50,545.00 111.50,553.00" fill="#d9d8d1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="541" width="38" height="12" rx="0" fill="#efeee9" stroke="none" stroke-width="1"/>
+<polygon points="111.50,553.00 122.50,545.00 122.50,550.00 111.50,558.00" fill="#c9daf1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="553" width="38" height="5" rx="0" fill="#e4eefa" stroke="none" stroke-width="1"/>
+<polygon points="111.50,558.00 122.50,550.00 122.50,560.00 111.50,568.00" fill="#d9d8d1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="558" width="38" height="10" rx="0" fill="#efeee9" stroke="none" stroke-width="1"/>
+<polygon points="73.50,541.00 84.50,533.00 122.50,533.00 111.50,541.00" fill="#efeee9" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="80.20,539.40 109.20,539.40 116.35,534.20 87.35,534.20" fill="#0b0b0b" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="79.5" y="560.5" width="26" height="5" rx="1" fill="#ffffff" stroke="none" stroke-width="1"/>
+<line x1="73.5" y1="553.0" x2="111.5" y2="553.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="111.5" y1="553.0" x2="122.5" y2="545.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="73.5" y1="558.0" x2="111.5" y2="558.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="111.5" y1="558.0" x2="122.5" y2="550.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<polygon points="73.50,541.00 84.50,533.00 122.50,533.00 122.50,560.00 111.50,568.00 73.50,568.00" fill="none" stroke="#52514e" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M73.50 541.00 H111.50 L122.50 533.00 M111.50 541.00 V568.00" fill="none" stroke="#52514e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="98.0" y="584.0" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">CoreS3 + H2</text>
+<text x="98.0" y="596.5" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">+ DIN Base</text>
+<rect x="152" y="352" width="154" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="167" y="373" width="30" height="20" rx="3.5" fill="#0b0b0b" stroke="none" stroke-width="1"/>
+<text x="182.0" y="386.8" font-size="10" class="mono" text-anchor="middle" fill="#ffffff" font-weight="700">CH1</text>
+<text x="208.0" y="378.0" font-size="12.5" class="sans" fill="#0b0b0b" font-weight="600"><tspan fill="#898781" font-weight="700">3a</tspan><tspan dx="5">Tilta CH1</tspan></text>
+<text x="208.0" y="396.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">set the channel</text>
+<path d="M288.0 414.0 L288.0 422.0 Q288.0 427.0 293.0 427.0 L333.0 427.0 Q338.0 427.0 338.0 432.0 L338.0 438.5" fill="none" stroke="#898781" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M333.5 434.0 L338.0 438.5 L342.5 434.0" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="320" y="440" width="180" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<g transform="rotate(-45 350.0 471.0)">
+<rect x="336" y="466" width="17" height="10" rx="5" fill="none" stroke="#52514e" stroke-width="1.8"/>
+<rect x="347" y="466" width="17" height="10" rx="5" fill="none" stroke="#52514e" stroke-width="1.8"/>
+</g>
+<text x="376.0" y="466.0" font-size="12.5" class="sans" fill="#0b0b0b" font-weight="600"><tspan fill="#898781" font-weight="700">3b</tspan><tspan dx="5">Pair</tspan></text>
+<text x="376.0" y="484.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">pink LED, double-click</text>
+<path d="M482.0 440.0 L482.0 432.0 Q482.0 427.0 487.0 427.0 L527.0 427.0 Q532.0 427.0 532.0 422.0 L532.0 415.5" fill="none" stroke="#898781" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M527.5 420.0 L532.0 415.5 L536.5 420.0" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="514" y="352" width="180" height="62" rx="8" fill="#fdf1eb" stroke="#eb6834" stroke-width="1.8"/>
+<path d="M549.74 376.31 A10 10 0 1 1 538.26 376.31" fill="none" stroke="#52514e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="544.0" y1="370.5" x2="544.0" y2="381.5" stroke="#52514e" stroke-width="2" stroke-linecap="round"/>
+<text x="570.0" y="371.0" font-size="12.5" class="sans" fill="#0b0b0b" font-weight="600"><tspan fill="#898781" font-weight="700">3c</tspan><tspan dx="5">Switch off</tspan></text>
+<text x="570.0" y="387.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">Knob or handle</text>
+<text x="570.0" y="402.0" font-size="11" class="sans" text-anchor="start" fill="#a8431a" font-weight="600">or the signals conflict</text>
+<path d="M690.0 344.0 L701.0 362.0 L679.0 362.0 z" fill="#eb6834" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="690.0" y="359.5" font-size="12" class="sans" text-anchor="middle" fill="#ffffff" font-weight="800">!</text>
+<path d="M676.0 414.0 L676.0 510.0 Q676.0 515.0 681.0 515.0 L721.0 515.0 Q726.0 515.0 726.0 520.0 L726.0 526.5" fill="none" stroke="#898781" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M721.5 522.0 L726.0 526.5 L730.5 522.0" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="708" y="528" width="190" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="723" y="549" width="30" height="20" rx="3.5" fill="#0b0b0b" stroke="none" stroke-width="1"/>
+<text x="738.0" y="562.8" font-size="10" class="mono" text-anchor="middle" fill="#1baf7a" font-weight="700">OK</text>
+<text x="764.0" y="554.0" font-size="12.5" class="sans" fill="#0b0b0b" font-weight="600"><tspan fill="#898781" font-weight="700">3d</tspan><tspan dx="5">Check: Motor OK</tspan></text>
+<text x="764.0" y="572.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">MagicFocus tab</text>
+<circle cx="45.0" cy="625.0" r="11" fill="#0b0b0b" stroke="none" stroke-width="1"/>
+<text x="45.0" y="629.5" font-size="12.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">4</text>
+<text x="64.0" y="630.0" font-size="15" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Set up the camera and lens</text>
+<g transform="translate(98 676) scale(1.2) translate(-98 -676)">
+<path d="M91 666.0 l2.5 -5 h9 l2.5 5" fill="#efeee9" stroke="#52514e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="79" y="666" width="38" height="24" rx="4" fill="#efeee9" stroke="#52514e" stroke-width="1.6"/>
+<rect x="79" y="670" width="7" height="16" rx="2" fill="#d9d8d1" stroke="#52514e" stroke-width="1.2"/>
+<circle cx="100.0" cy="678.0" r="10" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<circle cx="100.0" cy="678.0" r="6" fill="#dfe7f1" stroke="#52514e" stroke-width="1"/>
+<circle cx="98.0" cy="676.0" r="1.6" fill="#ffffff" stroke="none" stroke-width="1"/>
+</g>
+<text x="98.0" y="708.0" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Camera and lens</text>
+<g transform="translate(98 770) scale(1.2) translate(-98 -770)">
+<rect x="84" y="756" width="22" height="24" rx="4" fill="#efeee9" stroke="#52514e" stroke-width="1.6"/>
+<rect x="87" y="760" width="3" height="12" rx="1.5" fill="#e87ba4" stroke="none" stroke-width="1"/>
+<circle cx="106.0" cy="778.0" r="9.2" fill="none" stroke="#52514e" stroke-width="2.6" stroke-dasharray="1.8 1.8"/>
+<circle cx="106.0" cy="778.0" r="7.6" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<circle cx="106.0" cy="778.0" r="2" fill="#52514e" stroke="none" stroke-width="1"/>
+<circle cx="97.5" cy="763.0" r="4.8" fill="none" stroke="#2a78d6" stroke-width="1.2"/>
+<circle cx="97.5" cy="763.0" r="2.6" fill="#2a78d6" stroke="none" stroke-width="1"/>
+</g>
+<text x="98.0" y="804.0" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Motor</text>
+<rect x="152" y="644" width="170" height="78" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="170" y="671" width="9" height="24" rx="4.5" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<rect x="172" y="683.5" width="5" height="9.5" rx="2.5" fill="#2a78d6" stroke="none" stroke-width="1"/>
+<text x="183.0" y="679.0" font-size="8.5" class="mono" text-anchor="start" fill="#898781" font-weight="700">AF</text>
+<text x="183.0" y="692.0" font-size="8.5" class="mono" text-anchor="start" fill="#0b0b0b" font-weight="700">MF</text>
+<text x="208.0" y="678.0" font-size="12.5" class="sans" fill="#0b0b0b" font-weight="600"><tspan fill="#898781" font-weight="700">4a</tspan><tspan dx="5">Lens to MF</tspan></text>
+<text x="208.0" y="696.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">AF/MF switch</text>
+<path d="M330.0 677.0 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="344" y="644" width="226" height="78" rx="8" fill="#ffffff" stroke="#c3c2b7" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="374.0" cy="683.0" r="12" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<line x1="383.2" y1="683.0" x2="385.2" y2="683.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="382.0" y1="687.6" x2="383.7" y2="688.6" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="378.6" y1="691.0" x2="379.6" y2="692.7" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="374.0" y1="692.2" x2="374.0" y2="694.2" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="369.4" y1="691.0" x2="368.4" y2="692.7" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="366.0" y1="687.6" x2="364.3" y2="688.6" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="364.8" y1="683.0" x2="362.8" y2="683.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="366.0" y1="678.4" x2="364.3" y2="677.4" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="369.4" y1="675.0" x2="368.4" y2="673.3" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="374.0" y1="673.8" x2="374.0" y2="671.8" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="378.6" y1="675.0" x2="379.6" y2="673.3" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="382.0" y1="678.4" x2="383.7" y2="677.4" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<text x="374.0" y="686.3" font-size="8.5" class="mono" text-anchor="middle" fill="#52514e" font-weight="700">1:1</text>
+<text x="400.0" y="663.0" font-size="12.5" class="sans" fill="#0b0b0b" font-weight="600"><tspan fill="#898781" font-weight="700">4b</tspan><tspan dx="5">Set: Focus ring</tspan></text>
+<text x="400.0" y="679.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">linked to rotation degree</text>
+<text x="400.0" y="695.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">and disable auto power-off</text>
+<text x="400.0" y="710.0" font-size="11" class="sans" text-anchor="start" fill="#898781">by-wire lenses only</text>
+<path d="M552.0 722.0 L552.0 730.0 Q552.0 735.0 557.0 735.0 L597.0 735.0 Q602.0 735.0 602.0 740.0 L602.0 746.5" fill="none" stroke="#898781" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M597.5 742.0 L602.0 746.5 L606.5 742.0" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="584" y="748" width="270" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="600.0" y1="769.0" x2="600.0" y2="789.0" stroke="#52514e" stroke-width="2.4" stroke-linecap="round"/>
+<line x1="628.0" y1="769.0" x2="628.0" y2="789.0" stroke="#52514e" stroke-width="2.4" stroke-linecap="round"/>
+<line x1="605.0" y1="779.0" x2="623.0" y2="779.0" stroke="#2a78d6" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M609.0 775.0 l-4 4 l4 4" fill="none" stroke="#2a78d6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M619.0 775.0 l4 4 l-4 4" fill="none" stroke="#2a78d6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="640.0" y="767.0" font-size="12.5" class="sans" fill="#0b0b0b" font-weight="600"><tspan fill="#898781" font-weight="700">4c</tspan><tspan dx="5">Calibrate</tspan></text>
+<text x="640.0" y="783.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">hold button 3 s</text>
+<text x="640.0" y="798.0" font-size="11" class="sans" text-anchor="start" fill="#898781">no end stops? manually stop motor at ends</text>
+<circle cx="45.0" cy="845.0" r="11" fill="#0b0b0b" stroke="none" stroke-width="1"/>
+<text x="45.0" y="849.5" font-size="12.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">5</text>
+<text x="64.0" y="850.0" font-size="15" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Calibrate each lens</text>
+<g transform="translate(98 888) scale(1) translate(-98 -888)">
+<rect x="75" y="903" width="6" height="4" rx="1" fill="#52514e" stroke="none" stroke-width="1"/>
+<rect x="104" y="903" width="6" height="4" rx="1" fill="#52514e" stroke="none" stroke-width="1"/>
+<polygon points="111.50,877.00 122.50,869.00 122.50,881.00 111.50,889.00" fill="#d9d8d1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="877" width="38" height="12" rx="0" fill="#efeee9" stroke="none" stroke-width="1"/>
+<polygon points="111.50,889.00 122.50,881.00 122.50,886.00 111.50,894.00" fill="#c9daf1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="889" width="38" height="5" rx="0" fill="#e4eefa" stroke="none" stroke-width="1"/>
+<polygon points="111.50,894.00 122.50,886.00 122.50,896.00 111.50,904.00" fill="#d9d8d1" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="73.5" y="894" width="38" height="10" rx="0" fill="#efeee9" stroke="none" stroke-width="1"/>
+<polygon points="73.50,877.00 84.50,869.00 122.50,869.00 111.50,877.00" fill="#efeee9" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="80.20,875.40 109.20,875.40 116.35,870.20 87.35,870.20" fill="#0b0b0b" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<rect x="79.5" y="896.5" width="26" height="5" rx="1" fill="#ffffff" stroke="none" stroke-width="1"/>
+<line x1="73.5" y1="889.0" x2="111.5" y2="889.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="111.5" y1="889.0" x2="122.5" y2="881.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="73.5" y1="894.0" x2="111.5" y2="894.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<line x1="111.5" y1="894.0" x2="122.5" y2="886.0" stroke="#52514e" stroke-width="1" stroke-linecap="round"/>
+<polygon points="73.50,877.00 84.50,869.00 122.50,869.00 122.50,896.00 111.50,904.00 73.50,904.00" fill="none" stroke="#52514e" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M73.50 877.00 H111.50 L122.50 869.00 M111.50 877.00 V904.00" fill="none" stroke="#52514e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="98.0" y="920.0" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">CoreS3 + H2</text>
+<text x="98.0" y="932.5" font-size="10.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">+ DIN Base</text>
+<rect x="152" y="864" width="178" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<circle cx="182.0" cy="895.0" r="9" fill="#efeee9" stroke="#52514e" stroke-width="1.6"/>
+<circle cx="182.0" cy="895.0" r="4.5" fill="#dfe7f1" stroke="#52514e" stroke-width="1"/>
+<path d="M170 890.5 l-4.5 4.5 l4.5 4.5" fill="none" stroke="#52514e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M194 890.5 l4.5 4.5 l-4.5 4.5" fill="none" stroke="#52514e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="208.0" y="890.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Pick the lens</text>
+<text x="208.0" y="908.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">arrows or lenses.txt</text>
+<path d="M338.0 889.0 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="352" y="864" width="218" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="366" y="888.5" width="9" height="13" rx="2" fill="#0b0b0b" stroke="none" stroke-width="1"/>
+<line x1="377.0" y1="895.0" x2="388.0" y2="895.0" stroke="#eb6834" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2.5 2.5"/>
+<circle cx="393.0" cy="895.0" r="5.5" fill="none" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="393.0" cy="895.0" r="1.7" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="408.0" y="890.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Aim, focus, Save to SD</text>
+<text x="408.0" y="908.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">Calib. tab, 2+ points</text>
+<path d="M578.0 889.0 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="592" y="864" width="176" height="62" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<rect x="608" y="887" width="28" height="16" rx="8" fill="#1baf7a" stroke="none" stroke-width="1"/>
+<circle cx="628.0" cy="895.0" r="5.8" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="648.0" y="890.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Test with AF: ON</text>
+<text x="648.0" y="908.0" font-size="11.5" class="sans" text-anchor="start" fill="#52514e">MagicFocus tab</text>
+</svg>

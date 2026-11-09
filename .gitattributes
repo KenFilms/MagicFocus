@@ -1,0 +1,2 @@
+# GitHub guesses .h files to be C unless they use class, namespace or std::; this firmware's are C++.
+*.h linguist-language=C++

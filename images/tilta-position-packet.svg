@@ -1,0 +1,252 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="588" viewBox="0 0 960 588" role="img" aria-labelledby="title desc">
+<title id="title">Tilta Position Code</title>
+<desc id="desc">Byte-by-byte layout of the 16-byte frame the Tilta handle and the H2 bridge send: a length byte, a 9-byte IEEE 802.15.4 header (frame control 61 88, sequence number, PAN 0x01E7, broadcast destination, source 0xF096), a 4-byte Tilta payload and the radio's 2-byte CRC. The payload holds the packet type (4 = position), a 12-bit position from 0 to 4095, a direction bit (1 = falling), a 7-bit speed of about 180 counts/s per unit, and a checksum that makes the four payload bytes sum to 00. Example: 4A 9C 8A 90 is position 2716, falling at speed 10.</desc>
+<style>.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif}.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace}</style>
+<defs>
+<clipPath id="byte10"><rect x="594" y="125" width="52" height="44" rx="5"/></clipPath>
+<clipPath id="byte11"><rect x="650" y="125" width="52" height="44" rx="5"/></clipPath>
+<clipPath id="byte12"><rect x="706" y="125" width="52" height="44" rx="5"/></clipPath>
+<clipPath id="byte13"><rect x="762" y="125" width="52" height="44" rx="5"/></clipPath>
+</defs>
+<rect x="0.5" y="0.5" width="959" height="587" rx="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="34" y="40" font-size="22" class="sans" text-anchor="start" fill="#1d1d1b" font-weight="700">Tilta Position Code</text>
+<text x="34" y="62" font-size="13" class="sans" text-anchor="start" fill="#52514e">One IEEE 802.15.4 data frame per position update. Example: the handle turning toward 0, at 2716 with speed 10.</text>
+<path d="M594 169 L594 214 L28 262 L932 262 L814 214 L814 169 Z" fill="#efede6" stroke="none" stroke-width="1" fill-opacity="0.7"/>
+<path d="M594 169 L594 214 L28 262 M814 169 L814 214 L932 262" fill="none" stroke="#d6d4cc" stroke-width="1.2"/>
+<rect x="22" y="262" width="916" height="136" rx="8" fill="#f8f7f4" stroke="#d6d4cc" stroke-width="1.2"/>
+<rect x="34" y="82" width="52" height="22" rx="4" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="60" y="97.5" font-size="12" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">PHY</text>
+<rect x="90" y="82" width="500" height="22" rx="4" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="340" y="97.5" font-size="12" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">802.15.4 MAC header</text>
+<rect x="594" y="82" width="220" height="22" rx="4" fill="#f3f1ea" stroke="#cfcabd" stroke-width="1"/>
+<text x="704" y="97.5" font-size="12" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Tilta payload</text>
+<rect x="818" y="82" width="108" height="22" rx="4" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="872" y="97.5" font-size="12" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Radio adds</text>
+<text x="60" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">0</text>
+<rect x="34" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="60" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">0F</text>
+<text x="116" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">1</text>
+<rect x="90" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="116" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">61</text>
+<text x="172" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">2</text>
+<rect x="146" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="172" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">88</text>
+<text x="228" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">3</text>
+<rect x="202" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="228" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">C4</text>
+<text x="284" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">4</text>
+<rect x="258" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="284" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">E7</text>
+<text x="340" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">5</text>
+<rect x="314" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="340" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">01</text>
+<text x="396" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">6</text>
+<rect x="370" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="396" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">FF</text>
+<text x="452" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">7</text>
+<rect x="426" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="452" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">FF</text>
+<text x="508" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">8</text>
+<rect x="482" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="508" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">96</text>
+<text x="564" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">9</text>
+<rect x="538" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="564" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">F0</text>
+<text x="620" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">10</text>
+<g clip-path="url(#byte10)">
+<rect x="594" y="125" width="26" height="44" rx="0" fill="#e5effa" stroke="none" stroke-width="1"/>
+<rect x="620" y="125" width="26" height="44" rx="0" fill="#fdede7" stroke="none" stroke-width="1"/>
+</g>
+<rect x="594" y="125" width="52" height="44" rx="5" fill="none" stroke="#a9a69c" stroke-width="1"/>
+<text x="620" y="153" font-size="17" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">4A</text>
+<text x="676" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">11</text>
+<g clip-path="url(#byte11)">
+<rect x="650" y="125" width="52" height="44" rx="0" fill="#fdede7" stroke="none" stroke-width="1"/>
+</g>
+<rect x="650" y="125" width="52" height="44" rx="5" fill="none" stroke="#a9a69c" stroke-width="1"/>
+<text x="676" y="153" font-size="17" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">9C</text>
+<text x="732" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">12</text>
+<g clip-path="url(#byte12)">
+<rect x="706" y="125" width="6.5" height="44" rx="0" fill="#e4f5ef" stroke="none" stroke-width="1"/>
+<rect x="712.5" y="125" width="45.5" height="44" rx="0" fill="#fdf4e0" stroke="none" stroke-width="1"/>
+</g>
+<rect x="706" y="125" width="52" height="44" rx="5" fill="none" stroke="#a9a69c" stroke-width="1"/>
+<text x="732" y="153" font-size="17" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">8A</text>
+<text x="788" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">13</text>
+<g clip-path="url(#byte13)">
+<rect x="762" y="125" width="52" height="44" rx="0" fill="#fceff4" stroke="none" stroke-width="1"/>
+</g>
+<rect x="762" y="125" width="52" height="44" rx="5" fill="none" stroke="#a9a69c" stroke-width="1"/>
+<text x="788" y="153" font-size="17" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">90</text>
+<text x="844" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">14</text>
+<rect x="818" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="844" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">··</text>
+<text x="900" y="119" font-size="11" class="sans" text-anchor="middle" fill="#898781">15</text>
+<rect x="874" y="125" width="52" height="44" rx="5" fill="#f9f9f7" stroke="#d6d4cc" stroke-width="1"/>
+<text x="900" y="153" font-size="17" class="mono" text-anchor="middle" fill="#52514e">··</text>
+<path d="M37 174 v5 H83 v-5" fill="none" stroke="#c3c2b7" stroke-width="1"/>
+<text x="60" y="192" font-size="11.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Length</text>
+<text x="60" y="206" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">15 bytes</text>
+<path d="M93 174 v5 H195 v-5" fill="none" stroke="#c3c2b7" stroke-width="1"/>
+<text x="144" y="192" font-size="11.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Frame control</text>
+<text x="144" y="206" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">data, ACK req.</text>
+<path d="M205 174 v5 H251 v-5" fill="none" stroke="#c3c2b7" stroke-width="1"/>
+<text x="228" y="192" font-size="11.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Sequence</text>
+<text x="228" y="206" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">+1 each</text>
+<path d="M261 174 v5 H363 v-5" fill="none" stroke="#c3c2b7" stroke-width="1"/>
+<text x="312" y="192" font-size="11.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Dest. PAN</text>
+<text x="312" y="206" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">0x01E7</text>
+<path d="M373 174 v5 H475 v-5" fill="none" stroke="#c3c2b7" stroke-width="1"/>
+<text x="424" y="192" font-size="11.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Dest. addr.</text>
+<text x="424" y="206" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">broadcast</text>
+<path d="M485 174 v5 H587 v-5" fill="none" stroke="#c3c2b7" stroke-width="1"/>
+<text x="536" y="192" font-size="11.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Source</text>
+<text x="536" y="206" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">0xF096</text>
+<path d="M821 174 v5 H923 v-5" fill="none" stroke="#c3c2b7" stroke-width="1"/>
+<text x="872" y="192" font-size="11.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">FCS</text>
+<text x="872" y="206" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">CRC-16</text>
+<text x="138" y="285" font-size="13" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Byte 10 · <tspan class="mono" font-weight="400">4A</tspan></text>
+<rect x="34" y="308" width="26" height="38" rx="0" fill="#e5effa" stroke="#ffffff" stroke-width="1.5"/>
+<text x="47" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">7</text>
+<text x="47" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="60" y="308" width="26" height="38" rx="0" fill="#e5effa" stroke="#ffffff" stroke-width="1.5"/>
+<text x="73" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">6</text>
+<text x="73" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="86" y="308" width="26" height="38" rx="0" fill="#e5effa" stroke="#ffffff" stroke-width="1.5"/>
+<text x="99" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">5</text>
+<text x="99" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="112" y="308" width="26" height="38" rx="0" fill="#e5effa" stroke="#ffffff" stroke-width="1.5"/>
+<text x="125" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">4</text>
+<text x="125" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="34" y="308" width="104" height="38" rx="3" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="138" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="151" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">3</text>
+<text x="151" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="164" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="177" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">2</text>
+<text x="177" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="190" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="203" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">1</text>
+<text x="203" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="216" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="229" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">0</text>
+<text x="229" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="138" y="308" width="104" height="38" rx="3" fill="none" stroke="#eb6834" stroke-width="1.5"/>
+<text x="366" y="285" font-size="13" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Byte 11 · <tspan class="mono" font-weight="400">9C</tspan></text>
+<rect x="262" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="275" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">7</text>
+<text x="275" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="288" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="301" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">6</text>
+<text x="301" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="314" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="327" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">5</text>
+<text x="327" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="340" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="353" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">4</text>
+<text x="353" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="366" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="379" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">3</text>
+<text x="379" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="392" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="405" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">2</text>
+<text x="405" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="418" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="431" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">1</text>
+<text x="431" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="444" y="308" width="26" height="38" rx="0" fill="#fdede7" stroke="#ffffff" stroke-width="1.5"/>
+<text x="457" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">0</text>
+<text x="457" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="262" y="308" width="208" height="38" rx="3" fill="none" stroke="#eb6834" stroke-width="1.5"/>
+<text x="594" y="285" font-size="13" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Byte 12 · <tspan class="mono" font-weight="400">8A</tspan></text>
+<rect x="490" y="308" width="26" height="38" rx="0" fill="#e4f5ef" stroke="#ffffff" stroke-width="1.5"/>
+<text x="503" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">7</text>
+<text x="503" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="490" y="308" width="26" height="38" rx="3" fill="none" stroke="#1baf7a" stroke-width="1.5"/>
+<rect x="516" y="308" width="26" height="38" rx="0" fill="#fdf4e0" stroke="#ffffff" stroke-width="1.5"/>
+<text x="529" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">6</text>
+<text x="529" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="542" y="308" width="26" height="38" rx="0" fill="#fdf4e0" stroke="#ffffff" stroke-width="1.5"/>
+<text x="555" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">5</text>
+<text x="555" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="568" y="308" width="26" height="38" rx="0" fill="#fdf4e0" stroke="#ffffff" stroke-width="1.5"/>
+<text x="581" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">4</text>
+<text x="581" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="594" y="308" width="26" height="38" rx="0" fill="#fdf4e0" stroke="#ffffff" stroke-width="1.5"/>
+<text x="607" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">3</text>
+<text x="607" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="620" y="308" width="26" height="38" rx="0" fill="#fdf4e0" stroke="#ffffff" stroke-width="1.5"/>
+<text x="633" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">2</text>
+<text x="633" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="646" y="308" width="26" height="38" rx="0" fill="#fdf4e0" stroke="#ffffff" stroke-width="1.5"/>
+<text x="659" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">1</text>
+<text x="659" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="672" y="308" width="26" height="38" rx="0" fill="#fdf4e0" stroke="#ffffff" stroke-width="1.5"/>
+<text x="685" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">0</text>
+<text x="685" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="516" y="308" width="182" height="38" rx="3" fill="none" stroke="#eda100" stroke-width="1.5"/>
+<text x="822" y="285" font-size="13" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="600">Byte 13 · <tspan class="mono" font-weight="400">90</tspan></text>
+<rect x="718" y="308" width="26" height="38" rx="0" fill="#fceff4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="731" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">7</text>
+<text x="731" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="744" y="308" width="26" height="38" rx="0" fill="#fceff4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="757" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">6</text>
+<text x="757" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="770" y="308" width="26" height="38" rx="0" fill="#fceff4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="783" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">5</text>
+<text x="783" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="796" y="308" width="26" height="38" rx="0" fill="#fceff4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="809" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">4</text>
+<text x="809" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">1</text>
+<rect x="822" y="308" width="26" height="38" rx="0" fill="#fceff4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="835" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">3</text>
+<text x="835" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="848" y="308" width="26" height="38" rx="0" fill="#fceff4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="861" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">2</text>
+<text x="861" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="874" y="308" width="26" height="38" rx="0" fill="#fceff4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="887" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">1</text>
+<text x="887" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="900" y="308" width="26" height="38" rx="0" fill="#fceff4" stroke="#ffffff" stroke-width="1.5"/>
+<text x="913" y="302" font-size="10" class="sans" text-anchor="middle" fill="#898781">0</text>
+<text x="913" y="333" font-size="16" class="mono" text-anchor="middle" fill="#1d1d1b" font-weight="600">0</text>
+<rect x="718" y="308" width="208" height="38" rx="3" fill="none" stroke="#e87ba4" stroke-width="1.5"/>
+<text x="86" y="366" font-size="12.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="700">Type</text>
+<text x="86" y="382" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">4 = position</text>
+<text x="190" y="366" font-size="12.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="700">Position</text>
+<text x="190" y="382" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">bits 11–8</text>
+<text x="366" y="366" font-size="12.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="700">Position</text>
+<text x="366" y="382" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">bits 7–0</text>
+<text x="503" y="366" font-size="12.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="700">Dir.</text>
+<text x="503" y="382" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">1 = falling</text>
+<text x="607" y="366" font-size="12.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="700">Speed</text>
+<text x="607" y="382" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">unit ≈ 180 counts/s</text>
+<text x="822" y="366" font-size="12.5" class="sans" text-anchor="middle" fill="#1d1d1b" font-weight="700">Checksum</text>
+<text x="822" y="382" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">the 4 bytes sum to 00</text>
+<rect x="34" y="421.5" width="11" height="11" rx="2.5" fill="#eb6834" stroke="none" stroke-width="1"/>
+<text x="50" y="432" font-size="14" class="sans" text-anchor="start" fill="#1d1d1b" font-weight="700">Position</text>
+<text x="34" y="456" font-size="16" class="mono" text-anchor="start" fill="#1d1d1b" font-weight="600">0xA9C = 2716</text>
+<text x="162" y="456" font-size="12" class="sans" text-anchor="start" fill="#52514e">A from byte 10, 9C from byte 11</text>
+<rect x="34" y="484" width="412" height="10" rx="5" fill="#e7e6e1" stroke="none" stroke-width="1"/>
+<path d="M295.3 489.0 H239.3" fill="none" stroke="#1baf7a" stroke-width="3"/>
+<path d="M229.3 489.0 l10 -6 v12 Z" fill="#1baf7a" stroke="none" stroke-width="1"/>
+<text x="262.258" y="478" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">falling</text>
+<circle cx="307.3" cy="489.0" r="8" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="34" y="510" font-size="11.5" class="sans" text-anchor="start" fill="#898781">0</text>
+<text x="446" y="510" font-size="11.5" class="sans" text-anchor="end" fill="#898781">4095</text>
+<text x="240" y="510" font-size="11.5" class="sans" text-anchor="middle" fill="#898781">the motor's calibrated travel</text>
+<rect x="490" y="421.5" width="11" height="11" rx="2.5" fill="#1baf7a" stroke="none" stroke-width="1"/>
+<rect x="506" y="421.5" width="11" height="11" rx="2.5" fill="#eda100" stroke="none" stroke-width="1"/>
+<text x="522" y="432" font-size="14" class="sans" text-anchor="start" fill="#1d1d1b" font-weight="700">Direction and speed</text>
+<text x="490" y="456" font-size="13" class="sans" text-anchor="start" fill="#1d1d1b">bit 7 = 1: falling</text>
+<text x="490" y="476" font-size="13" class="sans" text-anchor="start" fill="#1d1d1b">speed 10 × ≈180 counts/s</text>
+<text x="490" y="496" font-size="13" class="sans" text-anchor="start" fill="#1d1d1b" font-weight="700">≈ 1,800 counts/s</text>
+<rect x="718" y="421.5" width="11" height="11" rx="2.5" fill="#e87ba4" stroke="none" stroke-width="1"/>
+<text x="734" y="432" font-size="14" class="sans" text-anchor="start" fill="#1d1d1b" font-weight="700">Checksum</text>
+<text x="718" y="456" font-size="13.5" class="mono" text-anchor="start" fill="#1d1d1b">4A + 9C + 8A + 90</text>
+<text x="718" y="476" font-size="13.5" class="mono" text-anchor="start" fill="#1d1d1b">= 0x200 → low byte 00 ✓</text>
+<text x="718" y="496" font-size="12" class="mono" text-anchor="start" fill="#52514e">byte 13 = 0 − 4A − 9C − 8A</text>
+<path d="M34 532 H926" fill="none" stroke="#ecebe6" stroke-width="1"/>
+<text x="34" y="552" font-size="12" class="sans" text-anchor="start" fill="#898781">Header fields are little-endian (E7 01 = PAN 0x01E7). The motor acknowledges every packet with ACK 02 00 C4, the same sequence number.</text>
+<text x="34" y="570" font-size="12" class="sans" text-anchor="start" fill="#898781">Bit 7 and the speed were measured on the Nucleus-N II Control Handle; strawlab's Knob capture has 00 in byte 12.</text>
+</svg>

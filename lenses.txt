@@ -1,0 +1,4 @@
+# MagicFocus lenses: <slot>: <name>, then each of its
+# calibration points as <metres> m: <motor position>
+1: Canon RF 24-70 2.8
+2: Canon EF 100mm 2.8

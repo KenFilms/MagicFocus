@@ -1,0 +1,348 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1444" viewBox="0 0 960 1444" role="img" aria-labelledby="title desc">
+<title id="title">Menus and Buttons</title>
+<desc id="desc">Menus and buttons of the MagicFocus screen, page by page, with numbers only on what is not obvious from the screen; every other button does what its label says, and only the orange-numbered ones do something else when held. On every tab: hold the lens name for a second to lock or unlock the lens, shown by a red padlock, so taps cannot switch it; the number in front of the name is its slot in lenses.txt. Tap the battery to switch between volts and percent; it turns green while charging and red below 15%. MagicFocus tab: tap the Lidar and Lens readout to switch between numbers and a graph of the last 10 seconds, drawn here and enlarged below the screen, with the distance to the subject from the lidar in orange and the distance the lens is focused at in blue. Camera links a Blackmagic camera on a Core2, whose lens is then picked even when the lens is locked. The motor button shows Motor OK, No motor or No bridge, the H2 not answering, and a tap checks the radio again. Calib. tab: tap the step for the next distance, 0.5, 2 or 4 m, where a green dot means a point is saved for it; hold an arrow to keep the motor turning, faster after a second; the middle shows the motor position, 0 to 4095, and the lower left the distance to the subject. AF Curve tab: each button sketches how the lens gets to focus, with the goal as a grey line, and the Speed button on the MagicFocus tab sets how fast. Good to know page: drag the text to scroll. Core2 only: a PIN keypad appears the first time a Blackmagic camera pairs, and holding button C for 2 seconds switches the Core2 off.</desc>
+<style>.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif}.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace}.ui{font-family:Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif}.dv{font-family:'DejaVu Sans', Verdana, Geneva, sans-serif}</style>
+<rect x="0.5" y="0.5" width="959" height="1443" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+<text x="34.0" y="42.0" font-size="22" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Menus and Buttons</text>
+<text x="34.0" y="64.0" font-size="13" class="sans" text-anchor="start" fill="#52514e">Only what isn't obvious is numbered; every other button does what its label says.</text>
+<text x="34.0" y="86.0" font-size="13" class="sans" text-anchor="start" fill="#52514e">Orange numbers do something else when held.</text>
+<rect x="36" y="104" width="340" height="272" rx="16" fill="#1f2023" stroke="#3a3b40" stroke-width="1"/>
+<g transform="translate(46 114)"><clipPath id="screen0"><rect width="320" height="240"/></clipPath><g clip-path="url(#screen0)">
+<rect x="0" y="0" width="320" height="240" rx="0" fill="#191c19" stroke="none" stroke-width="1"/>
+<rect x="0" y="0" width="320" height="50" rx="0" fill="#000000" stroke="none" stroke-width="1"/>
+<path d="M2.5 50 V12.5 A8 8 0 0 1 10.5 4.5 H105.5 A8 8 0 0 1 113.5 12.5 V50 Z" fill="#191c19" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M2.5 50 V12.5 A8 8 0 0 1 10.5 4.5 H105.5 A8 8 0 0 1 113.5 12.5 V50" fill="none" stroke="#42454a" stroke-width="1" stroke-linejoin="round"/>
+<text x="58" y="31" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="105" lengthAdjust="spacingAndGlyphs" font-weight="700">MagicFocus</text>
+<path d="M118.5 50 V20.5 A8 8 0 0 1 126.5 12.5 H207.5 A8 8 0 0 1 215.5 20.5 V50 Z" fill="#101010" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M118.5 50 V20.5 A8 8 0 0 1 126.5 12.5 H207.5 A8 8 0 0 1 215.5 20.5 V50" fill="none" stroke="#424142" stroke-width="1" stroke-linejoin="round"/>
+<text x="167" y="35" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="46" lengthAdjust="spacingAndGlyphs">Calib.</text>
+<path d="M220.5 50 V20.5 A8 8 0 0 1 228.5 12.5 H309.5 A8 8 0 0 1 317.5 20.5 V50 Z" fill="#101010" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M220.5 50 V20.5 A8 8 0 0 1 228.5 12.5 H309.5 A8 8 0 0 1 317.5 20.5 V50" fill="none" stroke="#424142" stroke-width="1" stroke-linejoin="round"/>
+<text x="269" y="35" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="76" lengthAdjust="spacingAndGlyphs">AF Curve</text>
+<line x1="0" y1="49.5" x2="320" y2="49.5" stroke="#42454a" stroke-width="1" stroke-linecap="butt"/>
+<line x1="3" y1="49.5" x2="113" y2="49.5" stroke="#191c19" stroke-width="1" stroke-linecap="butt"/>
+<rect x="10" y="60" width="300" height="40" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<circle cx="50.5" cy="80.5" r="11" fill="none" stroke="#ffffff" stroke-width="1"/>
+<text x="50" y="85" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="10" lengthAdjust="spacingAndGlyphs">1</text>
+<text x="174" y="84" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="165" lengthAdjust="spacingAndGlyphs" font-weight="700">Canon RF 24-70 2.8</text>
+<polygon points="30,75 25,80 30,85" fill="#ffffff"/>
+<polygon points="290,75 295,80 290,85" fill="#ffffff"/>
+<line x1="80" y1="142.5" x2="240" y2="142.5" stroke="#424142" stroke-width="1" stroke-linecap="butt"/>
+<text x="81" y="141" font-size="11" class="dv" text-anchor="start" fill="#848284">1m</text>
+<line x1="80" y1="131.5" x2="240" y2="131.5" stroke="#424142" stroke-width="1" stroke-linecap="butt"/>
+<text x="81" y="130" font-size="11" class="dv" text-anchor="start" fill="#848284">4m</text>
+<polyline points="80.5,148.5 81.5,148.5 82.5,148.5 83.5,148.5 84.5,148.5 85.5,148.5 86.5,148.5 87.5,148.5 88.5,148.5 89.5,148.5 90.5,148.5 91.5,148.5 92.5,148.5 93.5,148.5 94.5,148.5 95.5,148.5 96.5,148.5 97.5,148.5 98.5,148.5 99.5,148.5 100.5,136.5 101.5,136.5 102.5,136.5 103.5,136.5 104.5,136.5 105.5,136.5 106.5,136.5 107.5,136.5 108.5,136.5 109.5,136.5 110.5,136.5 111.5,136.5 112.5,136.5 113.5,136.5 114.5,136.5 115.5,136.5 116.5,136.5 117.5,136.5 118.5,136.5 119.5,136.5 120.5,136.5 121.5,136.5 122.5,136.5 123.5,136.5 124.5,136.5 125.5,136.5 126.5,136.5 127.5,136.5 128.5,136.5 129.5,136.5 130.5,136.5 131.5,136.5 132.5,136.5 133.5,136.5 134.5,136.5 135.5,136.5 136.5,136.5 137.5,135.5 138.5,135.5 139.5,135.5 140.5,135.5 141.5,135.5 142.5,134.5 143.5,134.5 144.5,134.5 145.5,134.5 146.5,133.5 147.5,133.5 148.5,133.5 149.5,133.5 150.5,133.5 151.5,132.5 152.5,132.5 153.5,132.5 154.5,132.5 155.5,132.5 156.5,132.5 157.5,131.5 158.5,131.5 159.5,131.5 160.5,131.5 161.5,131.5 162.5,131.5 163.5,131.5 164.5,131.5 165.5,131.5 166.5,130.5 167.5,130.5 168.5,130.5 169.5,130.5 170.5,124.5 171.5,124.5 172.5,124.5 173.5,124.5 174.5,124.5 175.5,124.5 176.5,124.5 177.5,124.5 178.5,124.5 179.5,124.5 180.5,124.5 181.5,124.5 182.5,124.5 183.5,124.5 184.5,124.5 185.5,124.5 186.5,124.5 187.5,124.5 188.5,124.5 189.5,124.5 190.5,124.5 191.5,124.5 192.5,124.5 193.5,124.5 194.5,124.5 195.5,124.5 196.5,141.5 197.5,141.5 198.5,141.5 199.5,141.5 200.5,141.5 201.5,141.5 202.5,141.5 203.5,141.5 204.5,141.5 205.5,141.5 206.5,141.5 207.5,141.5 208.5,141.5 209.5,141.5 210.5,141.5 211.5,141.5 212.5,141.5 213.5,141.5 214.5,141.5 215.5,141.5 216.5,141.5 217.5,141.5 218.5,141.5 219.5,141.5 220.5,141.5 221.5,141.5 222.5,141.5 223.5,141.5 224.5,141.5 225.5,141.5 226.5,141.5 227.5,141.5 228.5,141.5 229.5,141.5 230.5,141.5 231.5,141.5 232.5,141.5 233.5,141.5 234.5,141.5 235.5,141.5 236.5,141.5 237.5,141.5 238.5,141.5 239.5,141.5" fill="none" stroke="#ffa600" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="80.5,148.5 81.5,148.5 82.5,148.5 83.5,148.5 84.5,148.5 85.5,148.5 86.5,148.5 87.5,148.5 88.5,148.5 89.5,148.5 90.5,148.5 91.5,148.5 92.5,148.5 93.5,148.5 94.5,148.5 95.5,148.5 96.5,148.5 97.5,148.5 98.5,148.5 99.5,148.5 100.5,148.5 101.5,148.5 102.5,144.5 103.5,142.5 104.5,140.5 105.5,139.5 106.5,138.5 107.5,137.5 108.5,137.5 109.5,136.5 110.5,136.5 111.5,136.5 112.5,136.5 113.5,136.5 114.5,136.5 115.5,136.5 116.5,136.5 117.5,136.5 118.5,136.5 119.5,136.5 120.5,136.5 121.5,136.5 122.5,136.5 123.5,136.5 124.5,136.5 125.5,136.5 126.5,136.5 127.5,136.5 128.5,136.5 129.5,136.5 130.5,136.5 131.5,136.5 132.5,136.5 133.5,136.5 134.5,136.5 135.5,136.5 136.5,136.5 137.5,136.5 138.5,136.5 139.5,136.5 140.5,135.5 141.5,135.5 142.5,135.5 143.5,135.5 144.5,135.5 145.5,135.5 146.5,134.5 147.5,134.5 148.5,134.5 149.5,134.5 150.5,134.5 151.5,133.5 152.5,133.5 153.5,133.5 154.5,133.5 155.5,133.5 156.5,132.5 157.5,132.5 158.5,132.5 159.5,132.5 160.5,132.5 161.5,131.5 162.5,131.5 163.5,131.5 164.5,131.5 165.5,131.5 166.5,131.5 167.5,131.5 168.5,131.5 169.5,131.5 170.5,130.5 171.5,130.5 172.5,128.5 173.5,127.5 174.5,126.5 175.5,125.5 176.5,125.5 177.5,125.5 178.5,124.5 179.5,124.5 180.5,124.5 181.5,124.5 182.5,124.5 183.5,124.5 184.5,124.5 185.5,124.5 186.5,124.5 187.5,124.5 188.5,124.5 189.5,124.5 190.5,124.5 191.5,124.5 192.5,124.5 193.5,124.5 194.5,124.5 195.5,124.5 196.5,124.5 197.5,124.5 198.5,129.5 199.5,133.5 200.5,135.5 201.5,137.5 202.5,138.5 203.5,139.5 204.5,140.5 205.5,140.5 206.5,140.5 207.5,140.5 208.5,141.5 209.5,141.5 210.5,141.5 211.5,141.5 212.5,141.5 213.5,141.5 214.5,141.5 215.5,141.5 216.5,141.5 217.5,141.5 218.5,141.5 219.5,141.5 220.5,141.5 221.5,141.5 222.5,141.5 223.5,141.5 224.5,141.5 225.5,141.5 226.5,141.5 227.5,141.5 228.5,141.5 229.5,141.5 230.5,141.5 231.5,141.5 232.5,141.5 233.5,141.5 234.5,141.5 235.5,141.5 236.5,141.5 237.5,141.5 238.5,141.5 239.5,141.5" fill="none" stroke="#4a9ef7" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="80" y="115" font-size="11" class="dv" text-anchor="start" fill="#ffa600">Lidar 1.21</text>
+<text x="239" y="115" font-size="11" class="dv" text-anchor="end" fill="#4a9ef7">Lens 1.22</text>
+<rect x="10" y="105" width="65" height="56" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="42" y="125" font-size="18" class="ui" text-anchor="middle" fill="#7b868c" textLength="52" lengthAdjust="spacingAndGlyphs">Speed</text>
+<text x="42" y="149" font-size="18" class="ui" text-anchor="middle" fill="#00ff00" textLength="42" lengthAdjust="spacingAndGlyphs" font-weight="700">Slow</text>
+<rect x="245" y="105" width="65" height="56" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="277" y="125" font-size="18" class="ui" text-anchor="middle" fill="#7b868c" textLength="64" lengthAdjust="spacingAndGlyphs">Camera</text>
+<text x="277" y="149" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="26" lengthAdjust="spacingAndGlyphs" font-weight="700">Off</text>
+<rect x="10" y="167" width="95" height="44" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="57" y="193" font-size="18" class="ui" text-anchor="middle" fill="#00ff00" textLength="61" lengthAdjust="spacingAndGlyphs" font-weight="700">AF: ON</text>
+<rect x="110" y="167" width="100" height="44" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="160" y="193" font-size="18" class="ui" text-anchor="middle" fill="#00ff00" textLength="83" lengthAdjust="spacingAndGlyphs" font-weight="700">Motor OK</text>
+<rect x="215" y="167" width="95" height="44" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="262" y="193" font-size="18" class="ui" text-anchor="middle" fill="#7b868c" textLength="60" lengthAdjust="spacingAndGlyphs" font-weight="700">Infinity</text>
+<text x="10" y="233" font-size="14" class="ui" text-anchor="start" fill="#00ff00">Autofocus on</text>
+<circle cx="248.5" cy="228.5" r="7" fill="none" stroke="#ffffff" stroke-width="1"/>
+<rect x="247" y="224" width="2" height="2" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="247" y="227" width="2" height="5" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="273" y="221" width="34" height="14" rx="2" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="307" y="225" width="3" height="6" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="290" y="232" font-size="10" class="mono" text-anchor="middle" fill="#000000" textLength="23" lengthAdjust="spacingAndGlyphs" font-weight="700">4.1V</text>
+</g>
+<circle cx="10" cy="60" r="9.5" fill="#c2501c" stroke="#ffffff" stroke-width="1.6"/>
+<text x="10.0" y="64.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+<circle cx="290" cy="251" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="290.0" y="255.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">2</text>
+<circle cx="160" cy="104" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="160.0" y="108.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">3</text>
+<circle cx="310" cy="105" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="310.0" y="109.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">4</text>
+<circle cx="160" cy="167" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="160.0" y="171.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">5</text>
+</g>
+<rect x="38" y="400" width="336" height="110" rx="10" fill="#191c19" stroke="#3a3b40" stroke-width="1.5"/>
+<clipPath id="graphzoom"><rect x="38" y="400" width="336" height="110" rx="10"/></clipPath><g clip-path="url(#graphzoom)"><g transform="translate(-114 198) scale(2)">
+<line x1="80" y1="142.5" x2="240" y2="142.5" stroke="#424142" stroke-width="1" stroke-linecap="butt"/>
+<text x="81" y="141" font-size="11" class="dv" text-anchor="start" fill="#848284">1m</text>
+<line x1="80" y1="131.5" x2="240" y2="131.5" stroke="#424142" stroke-width="1" stroke-linecap="butt"/>
+<text x="81" y="130" font-size="11" class="dv" text-anchor="start" fill="#848284">4m</text>
+<polyline points="80.5,148.5 81.5,148.5 82.5,148.5 83.5,148.5 84.5,148.5 85.5,148.5 86.5,148.5 87.5,148.5 88.5,148.5 89.5,148.5 90.5,148.5 91.5,148.5 92.5,148.5 93.5,148.5 94.5,148.5 95.5,148.5 96.5,148.5 97.5,148.5 98.5,148.5 99.5,148.5 100.5,136.5 101.5,136.5 102.5,136.5 103.5,136.5 104.5,136.5 105.5,136.5 106.5,136.5 107.5,136.5 108.5,136.5 109.5,136.5 110.5,136.5 111.5,136.5 112.5,136.5 113.5,136.5 114.5,136.5 115.5,136.5 116.5,136.5 117.5,136.5 118.5,136.5 119.5,136.5 120.5,136.5 121.5,136.5 122.5,136.5 123.5,136.5 124.5,136.5 125.5,136.5 126.5,136.5 127.5,136.5 128.5,136.5 129.5,136.5 130.5,136.5 131.5,136.5 132.5,136.5 133.5,136.5 134.5,136.5 135.5,136.5 136.5,136.5 137.5,135.5 138.5,135.5 139.5,135.5 140.5,135.5 141.5,135.5 142.5,134.5 143.5,134.5 144.5,134.5 145.5,134.5 146.5,133.5 147.5,133.5 148.5,133.5 149.5,133.5 150.5,133.5 151.5,132.5 152.5,132.5 153.5,132.5 154.5,132.5 155.5,132.5 156.5,132.5 157.5,131.5 158.5,131.5 159.5,131.5 160.5,131.5 161.5,131.5 162.5,131.5 163.5,131.5 164.5,131.5 165.5,131.5 166.5,130.5 167.5,130.5 168.5,130.5 169.5,130.5 170.5,124.5 171.5,124.5 172.5,124.5 173.5,124.5 174.5,124.5 175.5,124.5 176.5,124.5 177.5,124.5 178.5,124.5 179.5,124.5 180.5,124.5 181.5,124.5 182.5,124.5 183.5,124.5 184.5,124.5 185.5,124.5 186.5,124.5 187.5,124.5 188.5,124.5 189.5,124.5 190.5,124.5 191.5,124.5 192.5,124.5 193.5,124.5 194.5,124.5 195.5,124.5 196.5,141.5 197.5,141.5 198.5,141.5 199.5,141.5 200.5,141.5 201.5,141.5 202.5,141.5 203.5,141.5 204.5,141.5 205.5,141.5 206.5,141.5 207.5,141.5 208.5,141.5 209.5,141.5 210.5,141.5 211.5,141.5 212.5,141.5 213.5,141.5 214.5,141.5 215.5,141.5 216.5,141.5 217.5,141.5 218.5,141.5 219.5,141.5 220.5,141.5 221.5,141.5 222.5,141.5 223.5,141.5 224.5,141.5 225.5,141.5 226.5,141.5 227.5,141.5 228.5,141.5 229.5,141.5 230.5,141.5 231.5,141.5 232.5,141.5 233.5,141.5 234.5,141.5 235.5,141.5 236.5,141.5 237.5,141.5 238.5,141.5 239.5,141.5" fill="none" stroke="#ffa600" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="80.5,148.5 81.5,148.5 82.5,148.5 83.5,148.5 84.5,148.5 85.5,148.5 86.5,148.5 87.5,148.5 88.5,148.5 89.5,148.5 90.5,148.5 91.5,148.5 92.5,148.5 93.5,148.5 94.5,148.5 95.5,148.5 96.5,148.5 97.5,148.5 98.5,148.5 99.5,148.5 100.5,148.5 101.5,148.5 102.5,144.5 103.5,142.5 104.5,140.5 105.5,139.5 106.5,138.5 107.5,137.5 108.5,137.5 109.5,136.5 110.5,136.5 111.5,136.5 112.5,136.5 113.5,136.5 114.5,136.5 115.5,136.5 116.5,136.5 117.5,136.5 118.5,136.5 119.5,136.5 120.5,136.5 121.5,136.5 122.5,136.5 123.5,136.5 124.5,136.5 125.5,136.5 126.5,136.5 127.5,136.5 128.5,136.5 129.5,136.5 130.5,136.5 131.5,136.5 132.5,136.5 133.5,136.5 134.5,136.5 135.5,136.5 136.5,136.5 137.5,136.5 138.5,136.5 139.5,136.5 140.5,135.5 141.5,135.5 142.5,135.5 143.5,135.5 144.5,135.5 145.5,135.5 146.5,134.5 147.5,134.5 148.5,134.5 149.5,134.5 150.5,134.5 151.5,133.5 152.5,133.5 153.5,133.5 154.5,133.5 155.5,133.5 156.5,132.5 157.5,132.5 158.5,132.5 159.5,132.5 160.5,132.5 161.5,131.5 162.5,131.5 163.5,131.5 164.5,131.5 165.5,131.5 166.5,131.5 167.5,131.5 168.5,131.5 169.5,131.5 170.5,130.5 171.5,130.5 172.5,128.5 173.5,127.5 174.5,126.5 175.5,125.5 176.5,125.5 177.5,125.5 178.5,124.5 179.5,124.5 180.5,124.5 181.5,124.5 182.5,124.5 183.5,124.5 184.5,124.5 185.5,124.5 186.5,124.5 187.5,124.5 188.5,124.5 189.5,124.5 190.5,124.5 191.5,124.5 192.5,124.5 193.5,124.5 194.5,124.5 195.5,124.5 196.5,124.5 197.5,124.5 198.5,129.5 199.5,133.5 200.5,135.5 201.5,137.5 202.5,138.5 203.5,139.5 204.5,140.5 205.5,140.5 206.5,140.5 207.5,140.5 208.5,141.5 209.5,141.5 210.5,141.5 211.5,141.5 212.5,141.5 213.5,141.5 214.5,141.5 215.5,141.5 216.5,141.5 217.5,141.5 218.5,141.5 219.5,141.5 220.5,141.5 221.5,141.5 222.5,141.5 223.5,141.5 224.5,141.5 225.5,141.5 226.5,141.5 227.5,141.5 228.5,141.5 229.5,141.5 230.5,141.5 231.5,141.5 232.5,141.5 233.5,141.5 234.5,141.5 235.5,141.5 236.5,141.5 237.5,141.5 238.5,141.5 239.5,141.5" fill="none" stroke="#4a9ef7" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="80" y="115" font-size="11" class="dv" text-anchor="start" fill="#ffa600">Lidar 1.21</text>
+<text x="239" y="115" font-size="11" class="dv" text-anchor="end" fill="#4a9ef7">Lens 1.22</text>
+</g></g>
+<circle cx="40" cy="400" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="40.0" y="404.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">3</text>
+<text x="56.0" y="392.0" font-size="12" class="sans" text-anchor="start" fill="#898781">The graph, enlarged</text>
+<text x="404" y="119" font-size="14.5" class="sans" fill="#0b0b0b" font-weight="700">On every tab</text>
+<circle cx="413.5" cy="137" r="9.5" fill="#c2501c" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="141.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+<text x="430.0" y="141.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Lens name</text>
+<rect x="528" y="129" width="58" height="16" rx="8" fill="#fdf1eb" stroke="none" stroke-width="1"/>
+<text x="557.0" y="141.0" font-size="11" class="sans" text-anchor="middle" fill="#a8431a" font-weight="600">Hold 1 s</text>
+<text x="596.0" y="141.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">lock or unlock it (red padlock)</text>
+<text x="596.0" y="160.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">taps can't switch a locked lens</text>
+<text x="596.0" y="179.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">the number: its slot in lenses.txt</text>
+<circle cx="413.5" cy="199" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="203.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">2</text>
+<text x="430.0" y="203.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Battery</text>
+<rect x="528" y="191" width="58" height="16" rx="8" fill="#e4eefa" stroke="none" stroke-width="1"/>
+<text x="557.0" y="203.0" font-size="11" class="sans" text-anchor="middle" fill="#1d5aa6" font-weight="600">Tap</text>
+<text x="596.0" y="203.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">volts or percent</text>
+<text x="596.0" y="222.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">green: charging, red: below 15%</text>
+<text x="404" y="260" font-size="14.5" class="sans" fill="#0b0b0b" font-weight="700">MagicFocus tab<tspan font-size="12.5" font-weight="400" fill="#898781">  ·  autofocus</tspan></text>
+<circle cx="413.5" cy="278" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="282.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">3</text>
+<text x="430.0" y="282.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Lidar, Lens</text>
+<rect x="528" y="270" width="58" height="16" rx="8" fill="#e4eefa" stroke="none" stroke-width="1"/>
+<text x="557.0" y="282.0" font-size="11" class="sans" text-anchor="middle" fill="#1d5aa6" font-weight="600">Tap</text>
+<text x="596.0" y="282.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">switch between numbers and this 10 s graph</text>
+<text x="596.0" y="301.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">Lidar, orange: the distance to the subject</text>
+<text x="596.0" y="320.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">Lens, blue: the distance it is focused at</text>
+<circle cx="413.5" cy="340" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="344.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">4</text>
+<text x="430.0" y="344.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Camera</text>
+<rect x="528" y="332" width="58" height="16" rx="8" fill="#e4eefa" stroke="none" stroke-width="1"/>
+<text x="557.0" y="344.0" font-size="11" class="sans" text-anchor="middle" fill="#1d5aa6" font-weight="600">Tap</text>
+<text x="596.0" y="344.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">Blackmagic camera link, Core2 only</text>
+<text x="596.0" y="363.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">picks the camera's lens, even when locked</text>
+<circle cx="413.5" cy="383" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="387.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">5</text>
+<text x="430.0" y="387.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Motor</text>
+<rect x="528" y="375" width="58" height="16" rx="8" fill="#f0efea" stroke="none" stroke-width="1"/>
+<text x="557.0" y="387.0" font-size="11" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Shows</text>
+<text x="596.0" y="387.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">Motor OK, No motor or No bridge (the H2)</text>
+<rect x="528" y="394" width="58" height="16" rx="8" fill="#e4eefa" stroke="none" stroke-width="1"/>
+<text x="557.0" y="406.0" font-size="11" class="sans" text-anchor="middle" fill="#1d5aa6" font-weight="600">Tap</text>
+<text x="596.0" y="406.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">check the radio again</text>
+<line x1="34" y1="528" x2="926" y2="528" stroke="#ecebe6" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="36" y="542" width="340" height="272" rx="16" fill="#1f2023" stroke="#3a3b40" stroke-width="1"/>
+<g transform="translate(46 552)"><clipPath id="screen1"><rect width="320" height="240"/></clipPath><g clip-path="url(#screen1)">
+<rect x="0" y="0" width="320" height="240" rx="0" fill="#191c19" stroke="none" stroke-width="1"/>
+<rect x="0" y="0" width="320" height="50" rx="0" fill="#000000" stroke="none" stroke-width="1"/>
+<path d="M2.5 50 V20.5 A8 8 0 0 1 10.5 12.5 H105.5 A8 8 0 0 1 113.5 20.5 V50 Z" fill="#101010" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M2.5 50 V20.5 A8 8 0 0 1 10.5 12.5 H105.5 A8 8 0 0 1 113.5 20.5 V50" fill="none" stroke="#424142" stroke-width="1" stroke-linejoin="round"/>
+<text x="58" y="35" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="97" lengthAdjust="spacingAndGlyphs">MagicFocus</text>
+<path d="M118.5 50 V12.5 A8 8 0 0 1 126.5 4.5 H207.5 A8 8 0 0 1 215.5 12.5 V50 Z" fill="#191c19" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M118.5 50 V12.5 A8 8 0 0 1 126.5 4.5 H207.5 A8 8 0 0 1 215.5 12.5 V50" fill="none" stroke="#42454a" stroke-width="1" stroke-linejoin="round"/>
+<text x="167" y="31" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="48" lengthAdjust="spacingAndGlyphs" font-weight="700">Calib.</text>
+<path d="M220.5 50 V20.5 A8 8 0 0 1 228.5 12.5 H309.5 A8 8 0 0 1 317.5 20.5 V50 Z" fill="#101010" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M220.5 50 V20.5 A8 8 0 0 1 228.5 12.5 H309.5 A8 8 0 0 1 317.5 20.5 V50" fill="none" stroke="#424142" stroke-width="1" stroke-linejoin="round"/>
+<text x="269" y="35" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="76" lengthAdjust="spacingAndGlyphs">AF Curve</text>
+<line x1="0" y1="49.5" x2="320" y2="49.5" stroke="#42454a" stroke-width="1" stroke-linecap="butt"/>
+<line x1="119" y1="49.5" x2="215" y2="49.5" stroke="#191c19" stroke-width="1" stroke-linecap="butt"/>
+<rect x="10" y="60" width="300" height="40" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<circle cx="50.5" cy="80.5" r="11" fill="none" stroke="#ffffff" stroke-width="1"/>
+<text x="50" y="85" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="10" lengthAdjust="spacingAndGlyphs">1</text>
+<text x="163" y="84" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="165" lengthAdjust="spacingAndGlyphs" font-weight="700">Canon RF 24-70 2.8</text>
+<rect x="270.5" y="71.5" width="8" height="10" rx="4" fill="none" stroke="#ff0000" stroke-width="1"/>
+<rect x="271.5" y="72.5" width="6" height="8" rx="3" fill="none" stroke="#ff0000" stroke-width="1"/>
+<rect x="268" y="77" width="13" height="11" rx="2" fill="#ff0000" stroke="none" stroke-width="1"/>
+<rect x="274" y="81" width="1" height="3" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<polygon points="30,75 25,80 30,85" fill="#ffffff"/>
+<polygon points="290,75 295,80 290,85" fill="#ffffff"/>
+<rect x="10" y="105" width="100" height="70" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<text x="60" y="137" font-size="25" class="ui" text-anchor="middle" fill="#ffffff" textLength="41" lengthAdjust="spacingAndGlyphs" font-weight="700">2 m</text>
+<circle cx="46.5" cy="160.5" r="4" fill="none" stroke="#00ff00" stroke-width="1"/>
+<circle cx="60.5" cy="160.5" r="4.5" fill="#00ff00" stroke="none" stroke-width="1"/>
+<circle cx="74.5" cy="160.5" r="4" fill="none" stroke="#ffffff" stroke-width="1"/>
+<rect x="120" y="105" width="55" height="70" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<rect x="180" y="105" width="70" height="70" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<rect x="255" y="105" width="55" height="70" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<polygon points="153,130 143,140 153,150" fill="#ffffff"/>
+<polygon points="277,130 287,140 277,150" fill="#ffffff"/>
+<text x="215" y="146" font-size="25" class="ui" text-anchor="middle" fill="#ffffff" textLength="39" lengthAdjust="spacingAndGlyphs" font-weight="700">880</text>
+<rect x="10" y="181" width="80" height="34" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<text x="50" y="202" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="55" lengthAdjust="spacingAndGlyphs">2.00 m</text>
+<rect x="100" y="181" width="115" height="34" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="157" y="202" font-size="18" class="ui" text-anchor="middle" fill="#7b868c" textLength="94" lengthAdjust="spacingAndGlyphs" font-weight="700">Save to SD</text>
+<rect x="225" y="181" width="85" height="34" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="267" y="202" font-size="18" class="ui" text-anchor="middle" fill="#7b868c" textLength="60" lengthAdjust="spacingAndGlyphs" font-weight="700">Infinity</text>
+<text x="10" y="233" font-size="14" class="ui" text-anchor="start" fill="#00ff00">Point saved: 2.00 m = 880</text>
+<circle cx="248.5" cy="228.5" r="7" fill="none" stroke="#ffffff" stroke-width="1"/>
+<rect x="247" y="224" width="2" height="2" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="247" y="227" width="2" height="5" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="273" y="221" width="34" height="14" rx="2" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="307" y="225" width="3" height="6" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="290" y="232" font-size="10" class="mono" text-anchor="middle" fill="#000000" textLength="23" lengthAdjust="spacingAndGlyphs" font-weight="700">4.1V</text>
+</g>
+<circle cx="275" cy="61" r="9.5" fill="#c2501c" stroke="#ffffff" stroke-width="1.6"/>
+<text x="275.0" y="65.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+<circle cx="10" cy="105" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="10.0" y="109.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">6</text>
+<circle cx="147" cy="105" r="9.5" fill="#c2501c" stroke="#ffffff" stroke-width="1.6"/>
+<text x="147.0" y="109.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">7</text>
+<circle cx="282" cy="105" r="9.5" fill="#c2501c" stroke="#ffffff" stroke-width="1.6"/>
+<text x="282.0" y="109.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">7</text>
+<circle cx="215" cy="105" r="9.5" fill="#74736e" stroke="#ffffff" stroke-width="1.6"/>
+<text x="215.0" y="109.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">8</text>
+<circle cx="10" cy="181" r="9.5" fill="#74736e" stroke="#ffffff" stroke-width="1.6"/>
+<text x="10.0" y="185.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">9</text>
+</g>
+<text x="404" y="557" font-size="14.5" class="sans" fill="#0b0b0b" font-weight="700">Calib. tab<tspan font-size="12.5" font-weight="400" fill="#898781">  ·  aim at a subject, focus it, save</tspan></text>
+<circle cx="413.5" cy="575" r="9.5" fill="#1f68c0" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="579.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">6</text>
+<text x="430.0" y="579.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Step</text>
+<rect x="528" y="567" width="58" height="16" rx="8" fill="#e4eefa" stroke="none" stroke-width="1"/>
+<text x="557.0" y="579.0" font-size="11" class="sans" text-anchor="middle" fill="#1d5aa6" font-weight="600">Tap</text>
+<text x="596.0" y="579.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">next distance: 0.5, 2 or 4 m</text>
+<text x="596.0" y="598.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">a green dot: a point is saved for it</text>
+<circle cx="413.5" cy="618" r="9.5" fill="#c2501c" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="622.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">7</text>
+<text x="430.0" y="622.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Arrows</text>
+<rect x="528" y="610" width="58" height="16" rx="8" fill="#fdf1eb" stroke="none" stroke-width="1"/>
+<text x="557.0" y="622.0" font-size="11" class="sans" text-anchor="middle" fill="#a8431a" font-weight="600">Hold</text>
+<text x="596.0" y="622.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">keep turning, faster after 1 s</text>
+<circle cx="413.5" cy="642" r="9.5" fill="#74736e" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="646.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">8</text>
+<text x="430.0" y="646.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Position</text>
+<rect x="528" y="634" width="58" height="16" rx="8" fill="#f0efea" stroke="none" stroke-width="1"/>
+<text x="557.0" y="646.0" font-size="11" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Shows</text>
+<text x="596.0" y="646.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">the motor position, 0 to 4095</text>
+<circle cx="413.5" cy="666" r="9.5" fill="#74736e" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="670.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">9</text>
+<text x="430.0" y="670.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Lidar</text>
+<rect x="528" y="658" width="58" height="16" rx="8" fill="#f0efea" stroke="none" stroke-width="1"/>
+<text x="557.0" y="670.0" font-size="11" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Shows</text>
+<text x="596.0" y="670.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">the distance to the subject</text>
+<line x1="34" y1="828" x2="926" y2="828" stroke="#ecebe6" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="36" y="842" width="340" height="272" rx="16" fill="#1f2023" stroke="#3a3b40" stroke-width="1"/>
+<g transform="translate(46 852)"><clipPath id="screen2"><rect width="320" height="240"/></clipPath><g clip-path="url(#screen2)">
+<rect x="0" y="0" width="320" height="240" rx="0" fill="#191c19" stroke="none" stroke-width="1"/>
+<rect x="0" y="0" width="320" height="50" rx="0" fill="#000000" stroke="none" stroke-width="1"/>
+<path d="M2.5 50 V20.5 A8 8 0 0 1 10.5 12.5 H105.5 A8 8 0 0 1 113.5 20.5 V50 Z" fill="#101010" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M2.5 50 V20.5 A8 8 0 0 1 10.5 12.5 H105.5 A8 8 0 0 1 113.5 20.5 V50" fill="none" stroke="#424142" stroke-width="1" stroke-linejoin="round"/>
+<text x="58" y="35" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="97" lengthAdjust="spacingAndGlyphs">MagicFocus</text>
+<path d="M118.5 50 V20.5 A8 8 0 0 1 126.5 12.5 H207.5 A8 8 0 0 1 215.5 20.5 V50 Z" fill="#101010" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M118.5 50 V20.5 A8 8 0 0 1 126.5 12.5 H207.5 A8 8 0 0 1 215.5 20.5 V50" fill="none" stroke="#424142" stroke-width="1" stroke-linejoin="round"/>
+<text x="167" y="35" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="46" lengthAdjust="spacingAndGlyphs">Calib.</text>
+<path d="M220.5 50 V12.5 A8 8 0 0 1 228.5 4.5 H309.5 A8 8 0 0 1 317.5 12.5 V50 Z" fill="#191c19" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M220.5 50 V12.5 A8 8 0 0 1 228.5 4.5 H309.5 A8 8 0 0 1 317.5 12.5 V50" fill="none" stroke="#42454a" stroke-width="1" stroke-linejoin="round"/>
+<text x="269" y="31" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="80" lengthAdjust="spacingAndGlyphs" font-weight="700">AF Curve</text>
+<line x1="0" y1="49.5" x2="320" y2="49.5" stroke="#42454a" stroke-width="1" stroke-linecap="butt"/>
+<line x1="221" y1="49.5" x2="317" y2="49.5" stroke="#191c19" stroke-width="1" stroke-linecap="butt"/>
+<rect x="10" y="60" width="300" height="40" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<circle cx="50.5" cy="80.5" r="11" fill="none" stroke="#ffffff" stroke-width="1"/>
+<text x="50" y="85" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="10" lengthAdjust="spacingAndGlyphs">1</text>
+<text x="174" y="84" font-size="18" class="ui" text-anchor="middle" fill="#ffffff" textLength="165" lengthAdjust="spacingAndGlyphs" font-weight="700">Canon RF 24-70 2.8</text>
+<polygon points="30,75 25,80 30,85" fill="#ffffff"/>
+<polygon points="290,75 295,80 290,85" fill="#ffffff"/>
+<rect x="10" y="105" width="96" height="52" rx="0" fill="#42454a" stroke="none" stroke-width="1"/>
+<text x="58" y="122" font-size="18" class="ui" text-anchor="middle" fill="#00ff00" textLength="44" lengthAdjust="spacingAndGlyphs" font-weight="700">Snap</text>
+<line x1="38" y1="133.5" x2="78" y2="133.5" stroke="#424142" stroke-width="1" stroke-linecap="butt"/>
+<polyline points="38.5,151.5 39.5,151.5 40.5,150.5 41.5,148.5 42.5,146.5 43.5,144.5 44.5,142.5 45.5,140.5 46.5,138.5 47.5,136.5 48.5,134.5 49.5,133.5 50.5,133.5 51.5,133.5 52.5,133.5 53.5,133.5 54.5,133.5 55.5,133.5 56.5,133.5 57.5,133.5 58.5,133.5 59.5,133.5 60.5,133.5 61.5,133.5 62.5,133.5 63.5,133.5 64.5,133.5 65.5,133.5 66.5,133.5 67.5,133.5 68.5,133.5 69.5,133.5 70.5,133.5 71.5,133.5 72.5,133.5 73.5,133.5 74.5,133.5 75.5,133.5 76.5,133.5 77.5,133.5 78.5,133.5" fill="none" stroke="#00ff00" stroke-width="1.3" stroke-linejoin="round"/>
+<rect x="112" y="105" width="96" height="52" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="160" y="122" font-size="18" class="ui" text-anchor="middle" fill="#7b868c" textLength="90" lengthAdjust="spacingAndGlyphs" font-weight="700">Overshoot</text>
+<line x1="140" y1="133.5" x2="180" y2="133.5" stroke="#424142" stroke-width="1" stroke-linecap="butt"/>
+<polyline points="140.5,151.5 141.5,151.5 142.5,149.5 143.5,148.5 144.5,145.5 145.5,143.5 146.5,140.5 147.5,138.5 148.5,135.5 149.5,133.5 150.5,131.5 151.5,130.5 152.5,129.5 153.5,129.5 154.5,129.5 155.5,129.5 156.5,129.5 157.5,129.5 158.5,129.5 159.5,130.5 160.5,130.5 161.5,131.5 162.5,131.5 163.5,132.5 164.5,132.5 165.5,133.5 166.5,133.5 167.5,133.5 168.5,133.5 169.5,133.5 170.5,133.5 171.5,133.5 172.5,133.5 173.5,133.5 174.5,133.5 175.5,133.5 176.5,133.5 177.5,133.5 178.5,133.5 179.5,133.5 180.5,133.5" fill="none" stroke="#7b868c" stroke-width="1.3" stroke-linejoin="round"/>
+<rect x="214" y="105" width="96" height="52" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="262" y="122" font-size="18" class="ui" text-anchor="middle" fill="#7b868c" textLength="51" lengthAdjust="spacingAndGlyphs" font-weight="700">Creep</text>
+<line x1="242" y1="133.5" x2="282" y2="133.5" stroke="#424142" stroke-width="1" stroke-linecap="butt"/>
+<polyline points="242.5,151.5 243.5,151.5 244.5,150.5 245.5,149.5 246.5,147.5 247.5,146.5 248.5,144.5 249.5,142.5 250.5,140.5 251.5,139.5 252.5,138.5 253.5,137.5 254.5,137.5 255.5,137.5 256.5,137.5 257.5,137.5 258.5,137.5 259.5,137.5 260.5,137.5 261.5,136.5 262.5,136.5 263.5,135.5 264.5,134.5 265.5,133.5 266.5,133.5 267.5,133.5 268.5,133.5 269.5,133.5 270.5,133.5 271.5,133.5 272.5,133.5 273.5,133.5 274.5,133.5 275.5,133.5 276.5,133.5 277.5,133.5 278.5,133.5 279.5,133.5 280.5,133.5 281.5,133.5 282.5,133.5" fill="none" stroke="#7b868c" stroke-width="1.3" stroke-linejoin="round"/>
+<rect x="10" y="163" width="147" height="52" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="83" y="180" font-size="18" class="ui" text-anchor="middle" fill="#7b868c" textLength="67" lengthAdjust="spacingAndGlyphs" font-weight="700">Smooth</text>
+<line x1="63" y1="191.5" x2="103" y2="191.5" stroke="#424142" stroke-width="1" stroke-linecap="butt"/>
+<polyline points="63.5,209.5 64.5,209.5 65.5,209.5 66.5,209.5 67.5,208.5 68.5,208.5 69.5,208.5 70.5,208.5 71.5,207.5 72.5,207.5 73.5,206.5 74.5,206.5 75.5,205.5 76.5,205.5 77.5,204.5 78.5,203.5 79.5,203.5 80.5,202.5 81.5,201.5 82.5,201.5 83.5,200.5 84.5,199.5 85.5,199.5 86.5,198.5 87.5,197.5 88.5,197.5 89.5,196.5 90.5,195.5 91.5,195.5 92.5,194.5 93.5,194.5 94.5,193.5 95.5,193.5 96.5,192.5 97.5,192.5 98.5,192.5 99.5,192.5 100.5,191.5 101.5,191.5 102.5,191.5 103.5,191.5" fill="none" stroke="#7b868c" stroke-width="1.3" stroke-linejoin="round"/>
+<rect x="163" y="163" width="147" height="52" rx="0" fill="#31393a" stroke="none" stroke-width="1"/>
+<text x="236" y="180" font-size="18" class="ui" text-anchor="middle" fill="#7b868c" textLength="54" lengthAdjust="spacingAndGlyphs" font-weight="700">Linear</text>
+<line x1="216" y1="191.5" x2="256" y2="191.5" stroke="#424142" stroke-width="1" stroke-linecap="butt"/>
+<polyline points="216.5,209.5 217.5,208.5 218.5,208.5 219.5,207.5 220.5,206.5 221.5,205.5 222.5,205.5 223.5,204.5 224.5,203.5 225.5,203.5 226.5,202.5 227.5,201.5 228.5,200.5 229.5,200.5 230.5,199.5 231.5,198.5 232.5,197.5 233.5,197.5 234.5,196.5 235.5,195.5 236.5,195.5 237.5,194.5 238.5,193.5 239.5,192.5 240.5,192.5 241.5,191.5 242.5,191.5 243.5,191.5 244.5,191.5 245.5,191.5 246.5,191.5 247.5,191.5 248.5,191.5 249.5,191.5 250.5,191.5 251.5,191.5 252.5,191.5 253.5,191.5 254.5,191.5 255.5,191.5 256.5,191.5" fill="none" stroke="#7b868c" stroke-width="1.3" stroke-linejoin="round"/>
+<text x="10" y="233" font-size="14" class="ui" text-anchor="start" fill="#00ff00">AF curve: Snap</text>
+<circle cx="248.5" cy="228.5" r="7" fill="none" stroke="#ffffff" stroke-width="1"/>
+<rect x="247" y="224" width="2" height="2" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="247" y="227" width="2" height="5" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="273" y="221" width="34" height="14" rx="2" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="307" y="225" width="3" height="6" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="290" y="232" font-size="10" class="mono" text-anchor="middle" fill="#000000" textLength="23" lengthAdjust="spacingAndGlyphs" font-weight="700">4.1V</text>
+</g>
+<circle cx="10" cy="105" r="9.5" fill="#74736e" stroke="#ffffff" stroke-width="1.6"/>
+<text x="10.0" y="109.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">10</text>
+</g>
+<text x="404" y="857" font-size="14.5" class="sans" fill="#0b0b0b" font-weight="700">AF Curve tab<tspan font-size="12.5" font-weight="400" fill="#898781">  ·  how autofocus moves</tspan></text>
+<circle cx="413.5" cy="875" r="9.5" fill="#74736e" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="879.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">10</text>
+<text x="430.0" y="879.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Curves</text>
+<rect x="528" y="867" width="58" height="16" rx="8" fill="#f0efea" stroke="none" stroke-width="1"/>
+<text x="557.0" y="879.0" font-size="11" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Shows</text>
+<text x="596.0" y="879.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">how the lens gets to focus; grey: the goal</text>
+<text x="596.0" y="898.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">Speed, on the MagicFocus tab, sets how fast</text>
+<line x1="34" y1="1128" x2="926" y2="1128" stroke="#ecebe6" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="36" y="1142" width="340" height="272" rx="16" fill="#1f2023" stroke="#3a3b40" stroke-width="1"/>
+<g transform="translate(46 1152)"><clipPath id="screen3"><rect width="320" height="240"/></clipPath><g clip-path="url(#screen3)">
+<rect x="0" y="0" width="320" height="240" rx="0" fill="#191c19" stroke="none" stroke-width="1"/>
+<rect x="0" y="0" width="320" height="50" rx="0" fill="#000000" stroke="none" stroke-width="1"/>
+<path d="M2.5 50 V20.5 A8 8 0 0 1 10.5 12.5 H105.5 A8 8 0 0 1 113.5 20.5 V50 Z" fill="#101010" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M2.5 50 V20.5 A8 8 0 0 1 10.5 12.5 H105.5 A8 8 0 0 1 113.5 20.5 V50" fill="none" stroke="#424142" stroke-width="1" stroke-linejoin="round"/>
+<text x="58" y="35" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="97" lengthAdjust="spacingAndGlyphs">MagicFocus</text>
+<path d="M118.5 50 V20.5 A8 8 0 0 1 126.5 12.5 H207.5 A8 8 0 0 1 215.5 20.5 V50 Z" fill="#101010" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M118.5 50 V20.5 A8 8 0 0 1 126.5 12.5 H207.5 A8 8 0 0 1 215.5 20.5 V50" fill="none" stroke="#424142" stroke-width="1" stroke-linejoin="round"/>
+<text x="167" y="35" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="46" lengthAdjust="spacingAndGlyphs">Calib.</text>
+<path d="M220.5 50 V20.5 A8 8 0 0 1 228.5 12.5 H309.5 A8 8 0 0 1 317.5 20.5 V50 Z" fill="#101010" stroke="none" stroke-width="1" stroke-linejoin="round"/>
+<path d="M220.5 50 V20.5 A8 8 0 0 1 228.5 12.5 H309.5 A8 8 0 0 1 317.5 20.5 V50" fill="none" stroke="#424142" stroke-width="1" stroke-linejoin="round"/>
+<text x="269" y="35" font-size="18" class="ui" text-anchor="middle" fill="#848284" textLength="76" lengthAdjust="spacingAndGlyphs">AF Curve</text>
+<line x1="0" y1="49.5" x2="320" y2="49.5" stroke="#42454a" stroke-width="1" stroke-linecap="butt"/>
+<rect x="10" y="54" width="300" height="30" rx="6" fill="#42454a" stroke="none" stroke-width="1"/>
+<text x="22" y="74" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="120" lengthAdjust="spacingAndGlyphs" font-weight="700">Good to know</text>
+<line x1="285.5" y1="63.5" x2="297.5" y2="75.5" stroke="#ffffff" stroke-width="1" stroke-linecap="butt"/>
+<line x1="285.5" y1="75.5" x2="297.5" y2="63.5" stroke="#ffffff" stroke-width="1" stroke-linecap="butt"/>
+<line x1="286.5" y1="63.5" x2="298.5" y2="75.5" stroke="#ffffff" stroke-width="1" stroke-linecap="butt"/>
+<line x1="286.5" y1="75.5" x2="298.5" y2="63.5" stroke="#ffffff" stroke-width="1" stroke-linecap="butt"/>
+<line x1="287.5" y1="63.5" x2="299.5" y2="75.5" stroke="#ffffff" stroke-width="1" stroke-linecap="butt"/>
+<line x1="287.5" y1="75.5" x2="299.5" y2="63.5" stroke="#ffffff" stroke-width="1" stroke-linecap="butt"/>
+<clipPath id="infotext"><rect x="10" y="90" width="300" height="123"/></clipPath><g clip-path="url(#infotext)">
+<text x="20" y="103" font-size="18" class="ui" text-anchor="start" fill="#ffa600" textLength="148" lengthAdjust="spacingAndGlyphs" font-weight="700">Lens and camera</text>
+<text x="20" y="129" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="155" lengthAdjust="spacingAndGlyphs">Lens switch on MF.</text>
+<text x="20" y="155" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="265" lengthAdjust="spacingAndGlyphs">By-wire lenses: Linked to rotation</text>
+<text x="20" y="174" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="211" lengthAdjust="spacingAndGlyphs">degree, no auto power-off.</text>
+<text x="20" y="207" font-size="18" class="ui" text-anchor="start" fill="#ffa600" textLength="51" lengthAdjust="spacingAndGlyphs" font-weight="700">Motor</text>
+<text x="20" y="233" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="267" lengthAdjust="spacingAndGlyphs">Pair on Tilta CH1, then switch the</text>
+<text x="20" y="252" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="152" lengthAdjust="spacingAndGlyphs">Knob or handle off.</text>
+<text x="20" y="278" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="258" lengthAdjust="spacingAndGlyphs">Each lens: hold the motor button</text>
+<text x="20" y="297" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="230" lengthAdjust="spacingAndGlyphs">3 s. No end stops? Stop it by</text>
+<text x="20" y="316" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="149" lengthAdjust="spacingAndGlyphs">hand at both ends.</text>
+<text x="20" y="349" font-size="18" class="ui" text-anchor="start" fill="#ffa600" textLength="94" lengthAdjust="spacingAndGlyphs" font-weight="700">Calibration</text>
+<text x="20" y="375" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="246" lengthAdjust="spacingAndGlyphs">Calib. tab: aim at 0.5, 2 or 4 m,</text>
+<text x="20" y="394" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="240" lengthAdjust="spacingAndGlyphs">focus, Save to SD (2+ points).</text>
+<text x="20" y="420" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="142" lengthAdjust="spacingAndGlyphs">Test with AF: ON.</text>
+<text x="20" y="453" font-size="18" class="ui" text-anchor="start" fill="#ffa600" textLength="73" lengthAdjust="spacingAndGlyphs" font-weight="700">Lens list</text>
+<text x="20" y="479" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="265" lengthAdjust="spacingAndGlyphs">lenses.txt on the SD card: names</text>
+<text x="20" y="498" font-size="18" class="ui" text-anchor="start" fill="#ffffff" textLength="229" lengthAdjust="spacingAndGlyphs">and up to six points per lens.</text>
+</g>
+<rect x="303" y="92" width="4" height="119" rx="2" fill="#101010" stroke="none" stroke-width="1"/>
+<rect x="303" y="92" width="4" height="34" rx="2" fill="#848284" stroke="none" stroke-width="1"/>
+<text x="10" y="233" font-size="14" class="ui" text-anchor="start" fill="#00ff00">Autofocus on</text>
+<circle cx="248.5" cy="228.5" r="7" fill="none" stroke="#ffa600" stroke-width="1"/>
+<rect x="247" y="224" width="2" height="2" rx="0" fill="#ffa600" stroke="none" stroke-width="1"/>
+<rect x="247" y="227" width="2" height="5" rx="0" fill="#ffa600" stroke="none" stroke-width="1"/>
+<rect x="273" y="221" width="34" height="14" rx="2" fill="#ffffff" stroke="none" stroke-width="1"/>
+<rect x="307" y="225" width="3" height="6" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<text x="290" y="232" font-size="10" class="mono" text-anchor="middle" fill="#000000" textLength="23" lengthAdjust="spacingAndGlyphs" font-weight="700">4.1V</text>
+</g>
+<circle cx="2" cy="150" r="9.5" fill="#13805a" stroke="#ffffff" stroke-width="1.6"/>
+<text x="2.0" y="154.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">11</text>
+</g>
+<text x="404" y="1157" font-size="14.5" class="sans" fill="#0b0b0b" font-weight="700">Good to know<tspan font-size="12.5" font-weight="400" fill="#898781">  ·  opened with the (i)</tspan></text>
+<circle cx="413.5" cy="1175" r="9.5" fill="#13805a" stroke="#ffffff" stroke-width="1.6"/>
+<text x="413.5" y="1179.0" font-size="11.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">11</text>
+<text x="430.0" y="1179.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Text</text>
+<rect x="528" y="1167" width="58" height="16" rx="8" fill="#e3f4ec" stroke="none" stroke-width="1"/>
+<text x="557.0" y="1179.0" font-size="11" class="sans" text-anchor="middle" fill="#11704b" font-weight="600">Drag</text>
+<text x="596.0" y="1179.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">scroll</text>
+<text x="404" y="1217" font-size="14.5" class="sans" fill="#0b0b0b" font-weight="700">Core2 only</text>
+<circle cx="413.5" cy="1235" r="3" fill="#898781" stroke="none" stroke-width="1"/>
+<text x="430.0" y="1239.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">PIN keypad</text>
+<rect x="528" y="1227" width="58" height="16" rx="8" fill="#f0efea" stroke="none" stroke-width="1"/>
+<text x="557.0" y="1239.0" font-size="11" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">Shows</text>
+<text x="596.0" y="1239.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">the first time a Blackmagic camera pairs</text>
+<circle cx="413.5" cy="1259" r="3" fill="#898781" stroke="none" stroke-width="1"/>
+<text x="430.0" y="1263.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Button C</text>
+<rect x="528" y="1251" width="58" height="16" rx="8" fill="#fdf1eb" stroke="none" stroke-width="1"/>
+<text x="557.0" y="1263.0" font-size="11" class="sans" text-anchor="middle" fill="#a8431a" font-weight="600">Hold 2 s</text>
+<text x="596.0" y="1263.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b">switch the Core2 off</text>
+</svg>

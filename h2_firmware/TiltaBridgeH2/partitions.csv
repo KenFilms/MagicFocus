@@ -1,0 +1,5 @@
+# Single-app layout for the ESP32-H2-MINI-1-N2's 2MB flash.
+# Name,     Type, SubType, Offset,   Size,     Flags
+nvs,        data, nvs,     0x9000,   0x5000,
+phy_init,   data, phy,     0xe000,   0x1000,
+factory,    app,  factory, 0x10000,  0x1F0000,

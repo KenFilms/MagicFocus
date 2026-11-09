@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="820" viewBox="0 0 960 820" role="img" aria-labelledby="title desc">
+<title id="title">Lens Calibration</title>
+<desc id="desc">How MagicFocus calibrates a lens. On the Calib. page you aim the lidar at a subject near 0.5, 2 or 4 m, focus it sharp with the arrows and press Save to SD, which stores the lidar reading and the motor position. Autofocus interpolates between the saved points in 1/distance: in an example lens with points 0.5 m at 1950, 2 m at 880 and 4 m at 700, the curve against distance bends, while against 1/distance it is straight between points. A reading of 1.0 m lies between the 0.5 m and 2 m points: t = (1/1.0 - 1/0.5) / (1/2 - 1/0.5) = 0.67, so the position is 1950 + 0.67 x (880 - 1950) = 1237; interpolating in metres would give 1593. Closer than the nearest or farther than the farthest saved point, the line through the two outermost points is extended, within the motor range of 0 to 4095, so the example reaches 4095 at about 0.2 m and 520 at infinity. A legend names the marks: saved points, the interpolated and the extrapolated position, and the example reading. Autofocus needs at least two points. The autofocus loop: lidar frames with strength of at least 100 and 10 to 1200 cm, a jump check that holds back jumps over 15 % until they last 30 ms, a median of the last 5 readings, hysteresis that ignores changes under 2 cm, the interpolation, a deadband that ignores changes under 24 counts, then a move along the chosen AF curve.</desc>
+<style>.sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif}.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace}</style>
+<rect x="0.5" y="0.5" width="959" height="819" rx="12" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="34.0" y="40.0" font-size="22" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Lens Calibration</text>
+<text x="34.0" y="62.0" font-size="13" class="sans" text-anchor="start" fill="#52514e">Each saved point pairs a lidar distance with a motor position. Autofocus interpolates between them in 1/distance and extrapolates beyond them.</text>
+<circle cx="45" cy="100" r="11" fill="#0b0b0b"/>
+<text x="45.0" y="104.5" font-size="12.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+<text x="64.0" y="105.0" font-size="15" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Calibrate: save two or three points per lens</text>
+<rect x="34" y="118" width="284" height="48" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="48.0" y="138.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Pick a point and aim the lidar</text>
+<text x="48.0" y="156.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">at a subject near 0.5, 2 or 4 m</text>
+<path d="M323 136 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="338" y="118" width="284" height="48" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="352.0" y="138.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Focus it sharp</text>
+<text x="352.0" y="156.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">with the arrows on the Calib. page</text>
+<path d="M627 136 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="642" y="118" width="284" height="48" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="656.0" y="138.0" font-size="12.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="600">Press Save to SD</text>
+<text x="656.0" y="156.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">stores the actual reading and position</text>
+<line x1="34.0" y1="188.0" x2="926.0" y2="188.0" stroke="#ecebe6" stroke-width="1" stroke-linecap="round"/>
+<circle cx="45" cy="209" r="11" fill="#0b0b0b"/>
+<text x="45.0" y="213.5" font-size="12.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">2</text>
+<text x="64.0" y="214.0" font-size="15" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Interpolate and extrapolate: straight lines in 1/distance</text>
+<text x="64.0" y="234.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">Example lens with three saved points: 0.5 m → 1950, 2 m → 880, 4 m → 700.</text>
+<circle cx="40" cy="263" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="52.0" y="267.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">Saved point</text>
+<line x1="143.1" y1="263.0" x2="169.1" y2="263.0" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<text x="177.1" y="267.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">Interpolated between saved points</text>
+<line x1="402.4" y1="263.0" x2="428.4" y2="263.0" stroke="#2a78d6" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/>
+<text x="436.4" y="267.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">Extrapolated beyond them, up to the motor’s end</text>
+<line x1="747.1" y1="263.0" x2="773.1" y2="263.0" stroke="#eb6834" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 3"/>
+<circle cx="760.0999999999999" cy="263" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="781.1" y="267.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">Example lidar reading</text>
+<text x="34.0" y="292.0" font-size="13" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Motor position against distance</text>
+<line x1="84.0" y1="500.0" x2="454.0" y2="500.0" stroke="#c3c2b7" stroke-width="1" stroke-linecap="round"/>
+<text x="76.0" y="504.0" font-size="11" class="sans" text-anchor="end" fill="#898781">0</text>
+<line x1="84.0" y1="452.6" x2="454.0" y2="452.6" stroke="#e1e0d9" stroke-width="1" stroke-linecap="round"/>
+<text x="76.0" y="456.6" font-size="11" class="sans" text-anchor="end" fill="#898781">1,000</text>
+<line x1="84.0" y1="405.3" x2="454.0" y2="405.3" stroke="#e1e0d9" stroke-width="1" stroke-linecap="round"/>
+<text x="76.0" y="409.3" font-size="11" class="sans" text-anchor="end" fill="#898781">2,000</text>
+<line x1="84.0" y1="357.9" x2="454.0" y2="357.9" stroke="#e1e0d9" stroke-width="1" stroke-linecap="round"/>
+<text x="76.0" y="361.9" font-size="11" class="sans" text-anchor="end" fill="#898781">3,000</text>
+<line x1="84.0" y1="310.5" x2="454.0" y2="310.5" stroke="#e1e0d9" stroke-width="1" stroke-linecap="round"/>
+<text x="76.0" y="314.5" font-size="11" class="sans" text-anchor="end" fill="#898781">4,000</text>
+<text x="84.0" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">0</text>
+<text x="158.0" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">1 m</text>
+<text x="232.0" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">2 m</text>
+<text x="306.0" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">3 m</text>
+<text x="380.0" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">4 m</text>
+<text x="454.0" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">5 m</text>
+<polyline points="121.0,407.6 121.7,408.9 122.5,410.2 123.2,411.4 124.0,412.6 124.7,413.8 125.4,414.9 126.2,415.9 126.9,416.9 127.7,417.9 128.4,418.9 129.1,419.8 129.9,420.7 130.6,421.6 131.4,422.4 132.1,423.2 132.8,424.0 133.6,424.8 134.3,425.5 135.1,426.2 135.8,426.9 136.5,427.6 137.3,428.3 138.0,428.9 138.8,429.5 139.5,430.1 140.2,430.7 141.0,431.3 141.7,431.9 142.5,432.4 143.2,433.0 143.9,433.5 144.7,434.0 145.4,434.5 146.2,435.0 146.9,435.4 147.6,435.9 148.4,436.4 149.1,436.8 149.9,437.2 150.6,437.7 151.3,438.1 152.1,438.5 152.8,438.9 153.6,439.3 154.3,439.6 155.0,440.0 155.8,440.4 156.5,440.7 157.3,441.1 158.0,441.4 158.7,441.7 159.5,442.1 160.2,442.4 161.0,442.7 161.7,443.0 162.4,443.3 163.2,443.6 163.9,443.9 164.7,444.2 165.4,444.5 166.1,444.8 166.9,445.0 167.6,445.3 168.4,445.6 169.1,445.8 169.8,446.1 170.6,446.3 171.3,446.6 172.1,446.8 172.8,447.0 173.5,447.3 174.3,447.5 175.0,447.7 175.8,448.0 176.5,448.2 177.2,448.4 178.0,448.6 178.7,448.8 179.5,449.0 180.2,449.2 180.9,449.4 181.7,449.6 182.4,449.8 183.2,450.0 183.9,450.2 184.6,450.4 185.4,450.5 186.1,450.7 186.9,450.9 187.6,451.1 188.3,451.2 189.1,451.4 189.8,451.6 190.6,451.7 191.3,451.9 192.0,452.1 192.8,452.2 193.5,452.4 194.3,452.5 195.0,452.7 195.7,452.8 196.5,453.0 197.2,453.1 198.0,453.3 198.7,453.4 199.4,453.5 200.2,453.7 200.9,453.8 201.7,454.0 202.4,454.1 203.1,454.2 203.9,454.3 204.6,454.5 205.4,454.6 206.1,454.7 206.8,454.8 207.6,455.0 208.3,455.1 209.1,455.2 209.8,455.3 210.5,455.4 211.3,455.6 212.0,455.7 212.8,455.8 213.5,455.9 214.2,456.0 215.0,456.1 215.7,456.2 216.5,456.3 217.2,456.4 217.9,456.5 218.7,456.6 219.4,456.7 220.2,456.8 220.9,456.9 221.6,457.0 222.4,457.1 223.1,457.2 223.9,457.3 224.6,457.4 225.3,457.5 226.1,457.6 226.8,457.7 227.6,457.8 228.3,457.9 229.0,458.0 229.8,458.1 230.5,458.1 231.3,458.2 232.0,458.3 232.7,458.4 233.5,458.5 234.2,458.6 235.0,458.6 235.7,458.7 236.4,458.8 237.2,458.9 237.9,459.0 238.7,459.0 239.4,459.1 240.1,459.2 240.9,459.3 241.6,459.4 242.4,459.4 243.1,459.5 243.8,459.6 244.6,459.6 245.3,459.7 246.1,459.8 246.8,459.9 247.5,459.9 248.3,460.0 249.0,460.1 249.8,460.1 250.5,460.2 251.2,460.3 252.0,460.3 252.7,460.4 253.5,460.5 254.2,460.5 254.9,460.6 255.7,460.7 256.4,460.7 257.2,460.8 257.9,460.9 258.6,460.9 259.4,461.0 260.1,461.0 260.9,461.1 261.6,461.2 262.3,461.2 263.1,461.3 263.8,461.3 264.6,461.4 265.3,461.4 266.0,461.5 266.8,461.6 267.5,461.6 268.3,461.7 269.0,461.7 269.7,461.8 270.5,461.8 271.2,461.9 272.0,461.9 272.7,462.0 273.4,462.0 274.2,462.1 274.9,462.1 275.7,462.2 276.4,462.2 277.1,462.3 277.9,462.3 278.6,462.4 279.4,462.4 280.1,462.5 280.8,462.5 281.6,462.6 282.3,462.6 283.1,462.7 283.8,462.7 284.5,462.8 285.3,462.8 286.0,462.9 286.8,462.9 287.5,463.0 288.2,463.0 289.0,463.1 289.7,463.1 290.5,463.1 291.2,463.2 291.9,463.2 292.7,463.3 293.4,463.3 294.2,463.4 294.9,463.4 295.6,463.4 296.4,463.5 297.1,463.5 297.9,463.6 298.6,463.6 299.3,463.6 300.1,463.7 300.8,463.7 301.6,463.8 302.3,463.8 303.0,463.8 303.8,463.9 304.5,463.9 305.3,464.0 306.0,464.0 306.7,464.0 307.5,464.1 308.2,464.1 309.0,464.1 309.7,464.2 310.4,464.2 311.2,464.3 311.9,464.3 312.7,464.3 313.4,464.4 314.1,464.4 314.9,464.4 315.6,464.5 316.4,464.5 317.1,464.5 317.8,464.6 318.6,464.6 319.3,464.6 320.1,464.7 320.8,464.7 321.5,464.7 322.3,464.8 323.0,464.8 323.8,464.8 324.5,464.9 325.2,464.9 326.0,464.9 326.7,465.0 327.5,465.0 328.2,465.0 328.9,465.1 329.7,465.1 330.4,465.1 331.2,465.2 331.9,465.2 332.6,465.2 333.4,465.2 334.1,465.3 334.9,465.3 335.6,465.3 336.3,465.4 337.1,465.4 337.8,465.4 338.6,465.4 339.3,465.5 340.0,465.5 340.8,465.5 341.5,465.6 342.3,465.6 343.0,465.6 343.7,465.6 344.5,465.7 345.2,465.7 346.0,465.7 346.7,465.8 347.4,465.8 348.2,465.8 348.9,465.8 349.7,465.9 350.4,465.9 351.1,465.9 351.9,465.9 352.6,466.0 353.4,466.0 354.1,466.0 354.8,466.0 355.6,466.1 356.3,466.1 357.1,466.1 357.8,466.1 358.5,466.2 359.3,466.2 360.0,466.2 360.8,466.2 361.5,466.3 362.2,466.3 363.0,466.3 363.7,466.3 364.5,466.4 365.2,466.4 365.9,466.4 366.7,466.4 367.4,466.5 368.2,466.5 368.9,466.5 369.6,466.5 370.4,466.6 371.1,466.6 371.9,466.6 372.6,466.6 373.3,466.6 374.1,466.7 374.8,466.7 375.6,466.7 376.3,466.7 377.0,466.8 377.8,466.8 378.5,466.8 379.3,466.8 380.0,466.8" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="91.4,306.0 92.1,306.0 92.9,306.0 93.6,306.0 94.4,306.0 95.1,306.0 95.8,306.0 96.6,306.0 97.3,306.0 98.1,306.0 98.8,306.2 99.5,314.3 100.3,321.6 101.0,328.3 101.8,334.4 102.5,340.0 103.2,345.2 104.0,350.0 104.7,354.5 105.5,358.7 106.2,362.6 106.9,366.2 107.7,369.6 108.4,372.8 109.2,375.8 109.9,378.7 110.6,381.3 111.4,383.9 112.1,386.3 112.9,388.6 113.6,390.7 114.3,392.8 115.1,394.7 115.8,396.6 116.6,398.4 117.3,400.1 118.0,401.7 118.8,403.3 119.5,404.8 120.3,406.2 121.0,407.6" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 4"/>
+<polyline points="380.0,466.8 380.7,466.9 381.5,466.9 382.2,466.9 383.0,466.9 383.7,466.9 384.4,467.0 385.2,467.0 385.9,467.0 386.7,467.0 387.4,467.0 388.1,467.1 388.9,467.1 389.6,467.1 390.4,467.1 391.1,467.1 391.8,467.2 392.6,467.2 393.3,467.2 394.1,467.2 394.8,467.2 395.5,467.3 396.3,467.3 397.0,467.3 397.8,467.3 398.5,467.3 399.2,467.4 400.0,467.4 400.7,467.4 401.5,467.4 402.2,467.4 402.9,467.5 403.7,467.5 404.4,467.5 405.2,467.5 405.9,467.5 406.6,467.5 407.4,467.6 408.1,467.6 408.9,467.6 409.6,467.6 410.3,467.6 411.1,467.6 411.8,467.7 412.6,467.7 413.3,467.7 414.0,467.7 414.8,467.7 415.5,467.8 416.3,467.8 417.0,467.8 417.7,467.8 418.5,467.8 419.2,467.8 420.0,467.9 420.7,467.9 421.4,467.9 422.2,467.9 422.9,467.9 423.7,467.9 424.4,467.9 425.1,468.0 425.9,468.0 426.6,468.0 427.4,468.0 428.1,468.0 428.8,468.0 429.6,468.1 430.3,468.1 431.1,468.1 431.8,468.1 432.5,468.1 433.3,468.1 434.0,468.2 434.8,468.2 435.5,468.2 436.2,468.2 437.0,468.2 437.7,468.2 438.5,468.2 439.2,468.3 439.9,468.3 440.7,468.3 441.4,468.3 442.2,468.3 442.9,468.3 443.6,468.3 444.4,468.4 445.1,468.4 445.9,468.4 446.6,468.4 447.3,468.4 448.1,468.4 448.8,468.4 449.6,468.5 450.3,468.5 451.0,468.5 451.8,468.5 452.5,468.5 453.3,468.5 454.0,468.5" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 4"/>
+<text x="417.0" y="458.8" font-size="11" class="sans" text-anchor="middle" fill="#898781">extrapolated</text>
+<line x1="158.0" y1="500.0" x2="158.0" y2="441.4" stroke="#eb6834" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 3"/>
+<line x1="84.0" y1="441.4" x2="158.0" y2="441.4" stroke="#eb6834" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 3"/>
+<circle cx="121.0" cy="407.6" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="232.0" cy="458.3" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="380.0" cy="466.8" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="158.0" cy="441.4" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="131.0" y="411.6" font-size="11.5" class="sans" text-anchor="start" fill="#52514e" font-weight="600">0.5 m</text>
+<text x="232.0" y="476.3" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">2 m</text>
+<text x="380.0" y="484.8" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">4 m</text>
+<text x="166.0" y="431.4" font-size="11.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">lidar 1.0 m → 1237</text>
+<text x="496.0" y="292.0" font-size="13" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">The same points against 1/distance</text>
+<line x1="546.0" y1="500.0" x2="916.0" y2="500.0" stroke="#c3c2b7" stroke-width="1" stroke-linecap="round"/>
+<text x="538.0" y="504.0" font-size="11" class="sans" text-anchor="end" fill="#898781">0</text>
+<line x1="546.0" y1="452.6" x2="916.0" y2="452.6" stroke="#e1e0d9" stroke-width="1" stroke-linecap="round"/>
+<text x="538.0" y="456.6" font-size="11" class="sans" text-anchor="end" fill="#898781">1,000</text>
+<line x1="546.0" y1="405.3" x2="916.0" y2="405.3" stroke="#e1e0d9" stroke-width="1" stroke-linecap="round"/>
+<text x="538.0" y="409.3" font-size="11" class="sans" text-anchor="end" fill="#898781">2,000</text>
+<line x1="546.0" y1="357.9" x2="916.0" y2="357.9" stroke="#e1e0d9" stroke-width="1" stroke-linecap="round"/>
+<text x="538.0" y="361.9" font-size="11" class="sans" text-anchor="end" fill="#898781">3,000</text>
+<line x1="546.0" y1="310.5" x2="916.0" y2="310.5" stroke="#e1e0d9" stroke-width="1" stroke-linecap="round"/>
+<text x="538.0" y="314.5" font-size="11" class="sans" text-anchor="end" fill="#898781">4,000</text>
+<text x="546.0" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">0</text>
+<text x="546.0" y="530.0" font-size="10.5" class="sans" text-anchor="middle" fill="#898781">∞</text>
+<text x="613.3" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">1</text>
+<text x="613.3" y="530.0" font-size="10.5" class="sans" text-anchor="middle" fill="#898781">1 m</text>
+<text x="680.5" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">2</text>
+<text x="680.5" y="530.0" font-size="10.5" class="sans" text-anchor="middle" fill="#898781">0.5 m</text>
+<text x="747.8" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">3</text>
+<text x="747.8" y="530.0" font-size="10.5" class="sans" text-anchor="middle" fill="#898781">0.33 m</text>
+<text x="815.1" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">4</text>
+<text x="815.1" y="530.0" font-size="10.5" class="sans" text-anchor="middle" fill="#898781">0.25 m</text>
+<text x="882.4" y="516.0" font-size="11" class="sans" text-anchor="middle" fill="#898781">5</text>
+<text x="882.4" y="530.0" font-size="10.5" class="sans" text-anchor="middle" fill="#898781">0.2 m</text>
+<text x="916.0" y="516.0" font-size="11" class="sans" text-anchor="end" fill="#898781">1/m</text>
+<polyline points="562.8,466.8 579.6,458.3 680.5,407.6" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="546.0,475.4 562.8,466.8" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 4"/>
+<polyline points="680.5,407.6 681.2,407.3 681.9,406.9 682.6,406.6 683.2,406.3 683.9,405.9 684.6,405.6 685.3,405.3 685.9,404.9 686.6,404.6 687.3,404.2 687.9,403.9 688.6,403.6 689.3,403.2 690.0,402.9 690.6,402.5 691.3,402.2 692.0,401.9 692.7,401.5 693.3,401.2 694.0,400.9 694.7,400.5 695.3,400.2 696.0,399.8 696.7,399.5 697.4,399.2 698.0,398.8 698.7,398.5 699.4,398.2 700.1,397.8 700.7,397.5 701.4,397.1 702.1,396.8 702.7,396.5 703.4,396.1 704.1,395.8 704.8,395.5 705.4,395.1 706.1,394.8 706.8,394.4 707.5,394.1 708.1,393.8 708.8,393.4 709.5,393.1 710.1,392.7 710.8,392.4 711.5,392.1 712.2,391.7 712.8,391.4 713.5,391.1 714.2,390.7 714.9,390.4 715.5,390.0 716.2,389.7 716.9,389.4 717.5,389.0 718.2,388.7 718.9,388.4 719.6,388.0 720.2,387.7 720.9,387.3 721.6,387.0 722.3,386.7 722.9,386.3 723.6,386.0 724.3,385.7 724.9,385.3 725.6,385.0 726.3,384.6 727.0,384.3 727.6,384.0 728.3,383.6 729.0,383.3 729.7,382.9 730.3,382.6 731.0,382.3 731.7,381.9 732.3,381.6 733.0,381.3 733.7,380.9 734.4,380.6 735.0,380.2 735.7,379.9 736.4,379.6 737.1,379.2 737.7,378.9 738.4,378.6 739.1,378.2 739.7,377.9 740.4,377.5 741.1,377.2 741.8,376.9 742.4,376.5 743.1,376.2 743.8,375.9 744.5,375.5 745.1,375.2 745.8,374.8 746.5,374.5 747.1,374.2 747.8,373.8 748.5,373.5 749.2,373.1 749.8,372.8 750.5,372.5 751.2,372.1 751.9,371.8 752.5,371.5 753.2,371.1 753.9,370.8 754.5,370.4 755.2,370.1 755.9,369.8 756.6,369.4 757.2,369.1 757.9,368.8 758.6,368.4 759.3,368.1 759.9,367.7 760.6,367.4 761.3,367.1 761.9,366.7 762.6,366.4 763.3,366.1 764.0,365.7 764.6,365.4 765.3,365.0 766.0,364.7 766.7,364.4 767.3,364.0 768.0,363.7 768.7,363.3 769.3,363.0 770.0,362.7 770.7,362.3 771.4,362.0 772.0,361.7 772.7,361.3 773.4,361.0 774.1,360.6 774.7,360.3 775.4,360.0 776.1,359.6 776.7,359.3 777.4,359.0 778.1,358.6 778.8,358.3 779.4,357.9 780.1,357.6 780.8,357.3 781.5,356.9 782.1,356.6 782.8,356.3 783.5,355.9 784.1,355.6 784.8,355.2 785.5,354.9 786.2,354.6 786.8,354.2 787.5,353.9 788.2,353.5 788.9,353.2 789.5,352.9 790.2,352.5 790.9,352.2 791.5,351.9 792.2,351.5 792.9,351.2 793.6,350.8 794.2,350.5 794.9,350.2 795.6,349.8 796.3,349.5 796.9,349.2 797.6,348.8 798.3,348.5 798.9,348.1 799.6,347.8 800.3,347.5 801.0,347.1 801.6,346.8 802.3,346.5 803.0,346.1 803.7,345.8 804.3,345.4 805.0,345.1 805.7,344.8 806.3,344.4 807.0,344.1 807.7,343.7 808.4,343.4 809.0,343.1 809.7,342.7 810.4,342.4 811.1,342.1 811.7,341.7 812.4,341.4 813.1,341.0 813.7,340.7 814.4,340.4 815.1,340.0 815.8,339.7 816.4,339.4 817.1,339.0 817.8,338.7 818.5,338.3 819.1,338.0 819.8,337.7 820.5,337.3 821.1,337.0 821.8,336.7 822.5,336.3 823.2,336.0 823.8,335.6 824.5,335.3 825.2,335.0 825.9,334.6 826.5,334.3 827.2,333.9 827.9,333.6 828.5,333.3 829.2,332.9 829.9,332.6 830.6,332.3 831.2,331.9 831.9,331.6 832.6,331.2 833.3,330.9 833.9,330.6 834.6,330.2 835.3,329.9 835.9,329.6 836.6,329.2 837.3,328.9 838.0,328.5 838.6,328.2 839.3,327.9 840.0,327.5 840.7,327.2 841.3,326.9 842.0,326.5 842.7,326.2 843.3,325.8 844.0,325.5 844.7,325.2 845.4,324.8 846.0,324.5 846.7,324.1 847.4,323.8 848.1,323.5 848.7,323.1 849.4,322.8 850.1,322.5 850.7,322.1 851.4,321.8 852.1,321.4 852.8,321.1 853.4,320.8 854.1,320.4 854.8,320.1 855.5,319.8 856.1,319.4 856.8,319.1 857.5,318.7 858.1,318.4 858.8,318.1 859.5,317.7 860.2,317.4 860.8,317.1 861.5,316.7 862.2,316.4 862.9,316.0 863.5,315.7 864.2,315.4 864.9,315.0 865.5,314.7 866.2,314.3 866.9,314.0 867.6,313.7 868.2,313.3 868.9,313.0 869.6,312.7 870.3,312.3 870.9,312.0 871.6,311.6 872.3,311.3 872.9,311.0 873.6,310.6 874.3,310.3 875.0,310.0 875.6,309.6 876.3,309.3 877.0,308.9 877.7,308.6 878.3,308.3 879.0,307.9 879.7,307.6 880.3,307.3 881.0,306.9 881.7,306.6 882.4,306.2 883.0,306.0 883.7,306.0 884.4,306.0 885.1,306.0 885.7,306.0 886.4,306.0 887.1,306.0 887.7,306.0 888.4,306.0 889.1,306.0 889.8,306.0 890.4,306.0 891.1,306.0 891.8,306.0 892.5,306.0 893.1,306.0 893.8,306.0 894.5,306.0 895.1,306.0 895.8,306.0 896.5,306.0 897.2,306.0 897.8,306.0 898.5,306.0 899.2,306.0 899.9,306.0 900.5,306.0 901.2,306.0 901.9,306.0 902.5,306.0 903.2,306.0 903.9,306.0 904.6,306.0 905.2,306.0 905.9,306.0 906.6,306.0 907.3,306.0 907.9,306.0 908.6,306.0 909.3,306.0 909.9,306.0 910.6,306.0 911.3,306.0 912.0,306.0 912.6,306.0 913.3,306.0 914.0,306.0 914.7,306.0 915.3,306.0 916.0,306.0" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 4"/>
+<text x="916.0" y="301.0" font-size="11" class="sans" text-anchor="end" fill="#898781">motor end</text>
+<line x1="613.3" y1="500.0" x2="613.3" y2="441.4" stroke="#eb6834" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 3"/>
+<line x1="546.0" y1="441.4" x2="613.3" y2="441.4" stroke="#eb6834" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 3"/>
+<circle cx="562.8" cy="466.8" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="579.6" cy="458.3" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="680.5" cy="407.6" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<circle cx="613.3" cy="441.4" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="670.5" y="411.6" font-size="11.5" class="sans" text-anchor="end" fill="#52514e" font-weight="600">0.5 m</text>
+<text x="587.6" y="476.3" font-size="11.5" class="sans" text-anchor="start" fill="#52514e" font-weight="600">2 m</text>
+<text x="562.8" y="484.8" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e" font-weight="600">4 m</text>
+<text x="622.3" y="456.4" font-size="11.5" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">1.0 m → 1237</text>
+<text x="34.0" y="558.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">For a reading d between two saved points (d₀, p₀) and (d₁, p₁):</text>
+<text x="34.0" y="582.0" font-size="14" class="mono" text-anchor="start" fill="#0b0b0b">t = (1/d − 1/d₀) / (1/d₁ − 1/d₀)</text>
+<text x="34.0" y="604.0" font-size="14" class="mono" text-anchor="start" fill="#0b0b0b">position = p₀ + t × (p₁ − p₀)</text>
+<text x="34.0" y="628.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">Beyond the outermost points, the line through the two outermost is</text>
+<text x="34.0" y="645.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">extended, up to the motor's end. Autofocus needs two saved points.</text>
+<text x="496.0" y="558.0" font-size="12.5" class="sans" text-anchor="start" fill="#52514e">Example: the lidar reads 1.0 m, between the 0.5 m and 2 m points</text>
+<text x="496.0" y="582.0" font-size="13" class="mono" text-anchor="start" fill="#0b0b0b">t = (1/1.0 − 1/0.5) / (1/2 − 1/0.5) = 0.67</text>
+<text x="496.0" y="604.0" font-size="13" class="mono" text-anchor="start" fill="#0b0b0b">position = 1950 + 0.67 × (880 − 1950) = 1237</text>
+<text x="496.0" y="628.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">Interpolating in metres instead would give 1593.</text>
+<text x="496.0" y="645.0" font-size="12" class="sans" text-anchor="start" fill="#52514e">Focus travel is close to linear in 1/distance, so these lines fit.</text>
+<line x1="34.0" y1="666.0" x2="926.0" y2="666.0" stroke="#ecebe6" stroke-width="1" stroke-linecap="round"/>
+<circle cx="45" cy="687" r="11" fill="#0b0b0b"/>
+<text x="45.0" y="691.5" font-size="12.5" class="sans" text-anchor="middle" fill="#ffffff" font-weight="700">3</text>
+<text x="64.0" y="692.0" font-size="15" class="sans" text-anchor="start" fill="#0b0b0b" font-weight="700">Autofocus loop: from a lidar reading to a motor move</text>
+<rect x="34" y="706" width="112" height="64" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="90.0" y="726.0" font-size="12" class="sans" text-anchor="middle" fill="#0b0b0b" font-weight="700">Lidar frame</text>
+<text x="90.0" y="744.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">strength ≥ 100</text>
+<text x="90.0" y="760.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">10 to 1200 cm</text>
+<path d="M152 732 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="164" y="706" width="112" height="64" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="220.0" y="726.0" font-size="12" class="sans" text-anchor="middle" fill="#0b0b0b" font-weight="700">Jump check</text>
+<text x="220.0" y="744.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">jumps over 15 %</text>
+<text x="220.0" y="760.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">must hold 30 ms</text>
+<path d="M282 732 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="294" y="706" width="112" height="64" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="350.0" y="726.0" font-size="12" class="sans" text-anchor="middle" fill="#0b0b0b" font-weight="700">Median</text>
+<text x="350.0" y="744.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">of the last</text>
+<text x="350.0" y="760.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">5 readings</text>
+<path d="M412 732 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="424" y="706" width="112" height="64" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="480.0" y="726.0" font-size="12" class="sans" text-anchor="middle" fill="#0b0b0b" font-weight="700">Hysteresis</text>
+<text x="480.0" y="744.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">ignore changes</text>
+<text x="480.0" y="760.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">under 2 cm</text>
+<path d="M542 732 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="554" y="706" width="112" height="64" rx="8" fill="#eef4fc" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="610.0" y="726.0" font-size="12" class="sans" text-anchor="middle" fill="#0b0b0b" font-weight="700">Interpolate</text>
+<text x="610.0" y="744.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">distance to</text>
+<text x="610.0" y="760.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">motor position</text>
+<path d="M672 732 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="684" y="706" width="112" height="64" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="740.0" y="726.0" font-size="12" class="sans" text-anchor="middle" fill="#0b0b0b" font-weight="700">Deadband</text>
+<text x="740.0" y="744.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">ignore changes</text>
+<text x="740.0" y="760.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">under 24 counts</text>
+<path d="M802 732 l6 6 l-6 6" fill="none" stroke="#898781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="814" y="706" width="112" height="64" rx="8" fill="#f9f9f7" stroke="#e1e0d9" stroke-width="1"/>
+<text x="870.0" y="726.0" font-size="12" class="sans" text-anchor="middle" fill="#0b0b0b" font-weight="700">Move</text>
+<text x="870.0" y="744.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">along the</text>
+<text x="870.0" y="760.0" font-size="11.5" class="sans" text-anchor="middle" fill="#52514e">AF curve</text>
+<text x="34.0" y="800.0" font-size="12" class="sans" text-anchor="start" fill="#898781">Code: focusForDistance() in src/LensCalibration.h, the lidar filters in src/Lidar.h, updateAutofocus() in src/FocusControl.h.</text>
+</svg>
