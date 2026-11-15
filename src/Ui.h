@@ -405,6 +405,8 @@ static const InfoParagraph INFO_TEXT[] = {
     {false, "Test with AF: ON."},
     {true, "Lens list"},
     {false, "lenses.txt on the SD card: names and up to six points per lens."},
+    {true, "About"},
+    {false, "MagicFocus " MAGICFOCUS_VERSION ". Install updates from kenfilms.github.io/MagicFocus"},
 };
 
 static const int INFO_X = 10, INFO_Y = 54, INFO_W = 300, INFO_H = FOOTER_Y - 4 - INFO_Y;   // ends above the footer

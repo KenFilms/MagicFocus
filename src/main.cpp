@@ -11,6 +11,8 @@
  *    Nano II hand wheel on IEEE 802.15.4 and keeps retransmitting the position to the motor.
  *    Its firmware lives in h2_firmware/TiltaBridgeH2, and the air protocol comes from
  *    https://github.com/strawlab/tilta-n2-control.
+ *  - On a CoreS3, the firmware carries that bridge firmware and installs it on the stacked H2 when the H2
+ *    runs another build (BridgeUpdate.h).
  */
 
 #include <M5Unified.h>
@@ -33,6 +35,7 @@
 #include "LensCalibration.h"
 #include "FocusControl.h"
 #include "Ui.h"
+#include "BridgeUpdate.h"
 #include "TouchInput.h"
 #include "SerialControl.h"
 #include "BlackmagicCamera.h"
@@ -56,7 +59,7 @@ void setup() {
     M5.Display.setRotation(3);
     selectBoard();
     if (strcmp(board.name, "CoreS3") == 0) beginAmbientBrightness();
-    Serial.printf("[BOARD] %s\n", board.name);
+    Serial.printf("[BOARD] %s, MagicFocus %s\n", board.name, MAGICFOCUS_VERSION);
     Serial2.begin(LIDAR_BAUD, SERIAL_8N1, board.lidarRx, board.lidarTx);
 
     const int8_t sdCs = M5.getPin(m5::pin_name_t::sd_spi_cs);
@@ -72,6 +75,7 @@ void setup() {
     loadAfCurve();
     loadLensLock();
     beginMotorLink();
+    updateBridgeIfNeeded();
     beginCameraLink();
     readBattery();
     drawScreen();

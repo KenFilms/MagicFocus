@@ -6,6 +6,10 @@
  */
 #pragma once
 
+// The release version, shown on the Good to know page; tools/build_release.sh puts it in the web
+// installer's manifest. Raise it before building a release.
+#define MAGICFOCUS_VERSION "1.0.0"
+
 enum BoardModel : uint8_t { BOARD_AUTO, BOARD_CORE2, BOARD_CORES3 };
 // BOARD_AUTO uses the board M5Unified detects at startup; set it to force a pin layout (see Board.h).
 static constexpr BoardModel BOARD_SELECTION = BOARD_AUTO;
@@ -64,6 +68,13 @@ static const uint32_t H2_PING_INTERVAL_MS = 1000;   // how often to re-announce 
 // here and in the Knob together if you use a different one.
 static const uint8_t TILTA_CHANNEL = 12;
 static const uint32_t H2_ANSWER_MS = 500;           // at startup, a running H2 answers within this; otherwise it is restarted
+// CoreS3 only: the firmware carries the bridge (h2_firmware/TiltaBridgeH2/TiltaBridgeH2.bin) and writes
+// it to the stacked H2 at startup when the H2 reports a different build or doesn't answer at all
+// (src/BridgeUpdate.h). Set to false while trying other H2 firmware, so it isn't replaced.
+static const bool H2_AUTO_UPDATE = true;
+static const uint32_t H2_BOOT_MS = 1500;            // a restarted H2 reports within this
+// The H2's ROM loader is switched to this rate for the update; if that fails, it is written at H2_BAUD.
+static const uint32_t H2_UPDATE_BAUD = 460800;
 // Until MagicFocus sends a position, the bridge has nothing to transmit and can't tell whether the motor
 // is there. This often it sends the handle's idle packet instead, which the motor acknowledges without
 // moving; the H2 counts the motor as gone after 1.5 s without an acknowledgement.

@@ -113,9 +113,32 @@ the stack connector can still supply power.
 
 ## Setting Up
 
-![Flashing and setup: 1, flash the H2 through the CoreS3 with Core2Programmer and esptool, or with the ESP32 Downloader on a Core2; 2, flash MagicFocus onto the CoreS3 or Core2, which restarts the H2 into the bridge; 3, set Tilta CH1 on the Knob or handle, pair the motor with its button, switch the Knob or handle off and check that the CoreS3 shows Motor OK; 4, for each lens, set it to MF, on a focus-by-wire lens set the camera's focus ring to rotation degree and disable auto power-off, and calibrate the motor to the lens with its button; 5, for each lens, pick it, save at least two calibration points and test them with AF on](images/setup-steps.svg)
+Steps 1 and 2 can be done in the browser with the [web installer](https://kenfilms.github.io/MagicFocus/#install), in Chrome or
+Edge on a computer; with a CoreS3, step 1 even happens by itself.
+
+![Flashing and setup: 1 and 2 at once in the browser, with the web installer at kenfilms.github.io/MagicFocus: a CoreS3 installs the bridge on its H2 at its first start, and a Core2 installs it with the H2 on the ESP32 Downloader; or by hand, 1, flash the H2 through the CoreS3 with Core2Programmer and esptool, or with the ESP32 Downloader on a Core2, which a CoreS3 also does itself in step 2; 2, flash MagicFocus onto the CoreS3 or Core2 with PlatformIO, and a CoreS3 installs the bridge on the H2 if needed; 3, set Tilta CH1 on the Knob or handle, pair the motor with its button, switch the Knob or handle off and check that the CoreS3 shows Motor OK; 4, for each lens, set it to MF, on a focus-by-wire lens set the camera's focus ring to rotation degree and disable auto power-off, and calibrate the motor to the lens with its button; 5, for each lens, pick it, save at least two calibration points and test them with AF on](images/setup-steps.svg)
 
 ### 1. Flash the Gateway H2
+
+**With a CoreS3 there's nothing to do here.** MagicFocus carries the bridge firmware and installs it
+on the stacked H2 itself, at its first start and whenever an update brings a new bridge: the screen
+shows *Updating radio bridge* with a progress bar for under a minute. Go on with
+[step 2](#2-flash-magicfocus-onto-the-cores3-or-core2).
+
+**With a Core2**, install the bridge from the browser: open the [web installer](https://kenfilms.github.io/MagicFocus/#install) in
+Chrome or Edge, connect the H2's download header to the computer with the M5Stack ESP32
+Downloader (or a 3.3 V USB-to-TTL adapter, with G9 connected to GND as the H2 powers up), click
+**Install** and pick the adapter's port. The installer recognises the ESP32-H2 and writes the bridge.
+
+<details>
+<summary>Building and flashing the bridge yourself</summary>
+
+**After changing the bridge.** `tools/build_release.sh` builds it with PlatformIO
+(`pio run -d h2_firmware/TiltaBridgeH2` builds just the bridge) and merges it into
+`h2_firmware/TiltaBridgeH2/TiltaBridgeH2.bin`, which the CoreS3 build carries. Upload MagicFocus to
+the CoreS3 afterwards, as in step 2, and it installs the new bridge at its next start. Other H2
+firmware, such as the sniffer, goes on with Core2Programmer as below; for anything but the sniffer,
+set `H2_AUTO_UPDATE` to `false` in [src/Config.h](src/Config.h) first, or MagicFocus replaces it.
 
 Open [h2_firmware/TiltaBridgeH2](h2_firmware/TiltaBridgeH2) in the Arduino IDE with
 arduino-esp32 ≥ 3.1.1 and select *ESP32H2 Dev Module*, flash size *2MB*, flash mode *DIO* and
@@ -154,24 +177,32 @@ If esptool can't connect, or a write fails partway, press the CoreS3's reset but
 esptool again: Core2Programmer starts over and puts the H2 back into download mode. A failed write
 is harmless, as the H2's download mode is in its ROM.
 
-If the CoreS3's port is listed but uploads to it time out, hold its reset button for about three
-seconds, until the green LED inside lights, and upload again. After an upload in this mode the
-CoreS3 stays in its bootloader; start it with
-`esptool --port /dev/cu.usbmodem101 --before no-reset --after watchdog-reset chip-id`.
-
 **With the ESP32 Downloader.** Also select *Erase All Flash Before Sketch Upload: Enable*, and
 upload through the H2's download header with the ESP32 Downloader. Use this route with a Core2.
+
+</details>
 
 ### 2. Flash MagicFocus onto the CoreS3 OR Core2
 
 MagicFocus itself, the firmware in [src](src), runs on the M5Stack CoreS3 or Core2; the H2 only
-runs the bridge from step 1. Connect the CoreS3 or Core2 to the computer by USB-C and upload
-MagicFocus with [PlatformIO](https://platformio.org), using the environment for your board:
+runs the bridge from step 1. To install it from the browser, open the [web installer](https://kenfilms.github.io/MagicFocus/#install)
+in Chrome or Edge, connect the CoreS3 or Core2 by USB-C, click **Install** and pick its port.
+
+Or build it and upload it with [PlatformIO](https://platformio.org), using the environment for your board:
 
 ```sh
 pio run -e m5stack-cores3 -t upload   # CoreS3 (ESP32-S3)
 pio run -e m5stack-core2 -t upload    # Core2 (ESP32)
 ```
+
+If the CoreS3's port is listed but uploads to it time out, hold its reset button for about three
+seconds, until the green LED inside lights, and upload again. After an upload in this mode the
+CoreS3 stays in its bootloader; start it with
+`esptool --port /dev/cu.usbmodem101 --before no-reset --after watchdog-reset chip-id`.
+
+`tools/build_release.sh` builds the bridge and both boards, and writes the web installer's files to
+[docs/firmware](docs/firmware). The version comes from `MAGICFOCUS_VERSION` in
+[src/Config.h](src/Config.h); raise it before building a release.
 
 ### 3. Pair Tte Motor with the Knob OR the Control Handle
 

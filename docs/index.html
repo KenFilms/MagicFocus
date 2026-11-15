@@ -37,6 +37,8 @@
         "description": "Open-source lidar autofocus firmware for a Tilta Nucleus Nano II focus motor, running on ESP32-based M5Stack CoreS3 and Core2 devices with an M5Stack Module Gateway H2 as the radio and a Benewake TFmini-S lidar.",
         "url": "https://kenfilms.github.io/MagicFocus/",
         "downloadUrl": "https://github.com/KenFilms/MagicFocus",
+        "installUrl": "https://kenfilms.github.io/MagicFocus/#install",
+        "softwareVersion": "1.0.0",
         "applicationCategory": "MultimediaApplication",
         "applicationSubCategory": "Lidar autofocus",
         "operatingSystem": "ESP32 (M5Stack CoreS3, Core2)",
@@ -92,6 +94,11 @@
           },
           {
             "@type": "Question",
+            "name": "How do I install MagicFocus?",
+            "acceptedAnswer": { "@type": "Answer", "text": "In Chrome or Edge on a computer, connect the CoreS3 or Core2 by USB and click Install on this page. A CoreS3 then installs the radio bridge on its Gateway H2 itself; with a Core2, connect the H2 through a USB-serial adapter and click Install again." }
+          },
+          {
+            "@type": "Question",
             "name": "Is MagicFocus free?",
             "acceptedAnswer": { "@type": "Answer", "text": "Yes. MagicFocus is open-source firmware licensed under the LGPL-3.0." }
           }
@@ -100,6 +107,8 @@
     ]
   }
   </script>
+
+  <script type="module" src="https://unpkg.com/esp-web-tools@10.4.0/dist/web/install-button.js?module"></script>
 
   <style>
     :root { color-scheme: dark; --bg: #0b0b0e; --panel: #16161b; --line: #2b2b33; --text: #ececf0; --muted: #a8a8b3;
@@ -127,6 +136,10 @@
     li { margin: 4px 0; }
     details { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
     summary { cursor: pointer; font-weight: 600; }
+    esp-web-install-button { display: inline-block; }
+    .install-cta { text-align: center; margin: 24px 0; }
+    .install-cta [slot="unsupported"], .install-cta [slot="not-allowed"] { display: inline-block; padding: 12px 18px; border: 1px solid var(--accent); border-radius: 8px; }
+    .note { color: var(--muted); font-size: .95rem; }
     footer { margin-top: 64px; padding-bottom: 40px; color: var(--muted); font-size: .85rem; }
   </style>
 </head>
@@ -134,7 +147,8 @@
   <header>
     <h1>MagicFocus – Open-Source Lidar Autofocus</h1>
     <p class="lead">A free, open-source autofocus for any lens with a focus gear, where <strong>you choose how focus moves</strong>. An <strong>M5Stack CoreS3 or Core2</strong> reads a <strong>TFmini-S lidar</strong> and drives a <strong>Tilta Nucleus Nano II</strong> motor by radio through a <strong>Gateway H2</strong>. Nothing connects to the camera, so it works with any camera.</p>
-    <a class="btn" href="https://github.com/KenFilms/MagicFocus" target="_blank" rel="noopener">View on GitHub</a>
+    <a class="btn" href="#install">Install in your browser</a>
+    <a class="btn secondary" href="https://github.com/KenFilms/MagicFocus" target="_blank" rel="noopener">View on GitHub</a>
     <a class="btn secondary" href="https://github.com/KenFilms/MagicFocus#setting-up" target="_blank" rel="noopener">Setup guide</a>
   </header>
 
@@ -208,12 +222,29 @@
       </figure>
     </section>
 
+    <section id="install">
+      <h2>Install in your browser</h2>
+      <p>Install MagicFocus 1.0.0 from this page, in <strong>Chrome or Edge</strong> on a computer. Connect the device by USB, click <strong>Install</strong> and pick its port: the installer recognises the CoreS3, the Core2 or the Gateway H2 and writes the matching firmware.</p>
+      <div class="install-cta">
+        <esp-web-install-button manifest="firmware/manifest.json">
+          <button slot="activate" class="btn">Install MagicFocus</button>
+          <span slot="unsupported">This browser can't install firmware. Open this page in Chrome or Edge on a computer.</span>
+          <span slot="not-allowed">Installing needs this page over https.</span>
+        </esp-web-install-button>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>CoreS3</h3><p>Install onto the CoreS3 with the Gateway H2 stacked on it. At its first start, MagicFocus installs the radio bridge on the H2 itself, with a progress bar on the screen, in under a minute.</p></div>
+        <div class="card"><h3>Core2</h3><p>Install onto the Core2. Then connect the Gateway H2 through an M5Stack ESP32 Downloader, or a 3.3 V USB-serial adapter with G9 held to GND, and click Install again to put the bridge on it.</p></div>
+      </div>
+      <p class="note">If the CoreS3 won't connect, hold its reset button for about three seconds, until the green LED inside lights, install, then press reset once. Erasing the device when asked clears the AF curve, lens lock and camera pairing; the lens list on the SD card stays. To build the firmware yourself, see the <a href="https://github.com/KenFilms/MagicFocus#setting-up" target="_blank" rel="noopener">setup guide</a>.</p>
+    </section>
+
     <section id="setup">
       <h2>Setting up</h2>
       <p>Steps 1 to 3 are done once, steps 4 and 5 for each lens. The <a href="https://github.com/KenFilms/MagicFocus#setting-up" target="_blank" rel="noopener">setup guide</a> has the details.</p>
       <ol>
-        <li><a href="https://github.com/KenFilms/MagicFocus#1-flash-the-gateway-h2" target="_blank" rel="noopener">Flash the Gateway H2</a></li>
-        <li><a href="https://github.com/KenFilms/MagicFocus#2-flash-magicfocus-onto-the-cores3-or-core2" target="_blank" rel="noopener">Flash MagicFocus onto the CoreS3 or Core2</a></li>
+        <li><a href="#install">Install the bridge on the Gateway H2</a> (a CoreS3 does this itself)</li>
+        <li><a href="#install">Install MagicFocus on the CoreS3 or Core2</a></li>
         <li><a href="https://github.com/KenFilms/MagicFocus#3-pair-the-motor-with-the-knob-or-the-control-handle" target="_blank" rel="noopener">Pair the motor with the Knob or the Control Handle</a></li>
         <li><a href="https://github.com/KenFilms/MagicFocus#4-set-up-the-camera-and-lens" target="_blank" rel="noopener">Set up the camera and lens</a></li>
         <li><a href="https://github.com/KenFilms/MagicFocus#5-calibrate-a-lens" target="_blank" rel="noopener">Calibrate a lens</a></li>
@@ -241,6 +272,10 @@
       <details>
         <summary>How do I calibrate a lens?</summary>
         <p>Aim the lidar at a subject, focus it by eye with the camera's focus aids, and save the point on the Calib. tab. With two or more points saved, MagicFocus interpolates between them.</p>
+      </details>
+      <details>
+        <summary>How do I install MagicFocus?</summary>
+        <p>In Chrome or Edge on a computer, connect the CoreS3 or Core2 by USB and click <a href="#install">Install</a> on this page. A CoreS3 then installs the radio bridge on its Gateway H2 itself; with a Core2, connect the H2 through a USB-serial adapter and click Install again.</p>
       </details>
       <details>
         <summary>Is MagicFocus free?</summary>

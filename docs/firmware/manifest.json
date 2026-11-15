@@ -1,0 +1,10 @@
+{
+  "name": "MagicFocus",
+  "version": "1.0.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    { "chipFamily": "ESP32-S3", "parts": [{ "path": "magicfocus-cores3.bin", "offset": 0 }] },
+    { "chipFamily": "ESP32", "parts": [{ "path": "magicfocus-core2.bin", "offset": 0 }] },
+    { "chipFamily": "ESP32-H2", "parts": [{ "path": "tiltabridge-h2.bin", "offset": 0 }] }
+  ]
+}

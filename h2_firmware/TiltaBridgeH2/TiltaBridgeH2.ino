@@ -17,18 +17,18 @@
  *   Tools -> Flash Size:            2MB
  *   Tools -> Partition Scheme:      custom      (uses the partitions.csv next to this sketch)
  *   Tools -> Erase All Flash ...:   Enable
- * Flash it through the module's program/download header with an M5Stack ESP32 Downloader.
+ * Flash it through the module's program/download header with an M5Stack ESP32 Downloader, or build it
+ * with PlatformIO (platformio.ini next to this sketch). On a CoreS3, MagicFocus carries this firmware
+ * and writes it to the stacked H2 itself whenever the H2 reports a different build (see the status frame).
  */
 
 #include <Arduino.h>
+#include "esp_app_desc.h"
 #include "esp_ieee802154.h"
 
 // UART0 is the module's download header, which is also the only UART broken out for the host link.
-#if ARDUINO_USB_CDC_ON_BOOT
+// In arduino-esp32 3.x, Serial0 is always UART0, whether or not Serial is the USB port.
 #define Bridge Serial0
-#else
-#define Bridge Serial
-#endif
 
 // The 802.15.4 driver has these but its header doesn't declare them. IDF 5.5's promiscuous mode turns
 // both automatic ACKs off and earlier versions leave both on; setting them keeps the bridge the same
@@ -102,7 +102,7 @@ static const uint8_t LINK_CMD_SEQUENCE_ADD = 0x07;
 static const uint8_t LINK_CMD_SEQUENCE_PLAY = 0x08;
 static const uint16_t SEQUENCE_MAX_STEPS = 800;
 static const uint8_t LINK_EVT_STATUS = 0x81;
-static const uint8_t LINK_MAX_PAYLOAD = 16;
+static const uint8_t LINK_MAX_PAYLOAD = 24;
 static const uint32_t STATUS_INTERVAL_MS = 100;
 static const uint32_t HOST_BAUD = 115200;
 
@@ -301,10 +301,13 @@ static void sendLinkFrame(uint8_t type, const uint8_t* payload, uint8_t payloadL
 }
 
 // Status: radio ready, motor acking, uint16 position, channel, mode 0 (the bridge, not the sniffer),
-// then uint16 counters of packets sent, acknowledged, resent and lost since the bridge started.
+// then uint16 counters of packets sent, acknowledged, resent and lost since the bridge started, then
+// the build: the first 4 bytes of this firmware's ELF SHA-256, which MagicFocus compares with the
+// bridge firmware it carries.
 static void sendStatus() {
     const bool motorAck = everAcked && millis() - lastAckMs < ACK_TIMEOUT_MS;
-    const uint8_t payload[14] = {
+    const uint8_t* build = esp_app_get_description()->app_elf_sha256;
+    const uint8_t payload[18] = {
         (uint8_t)(radioReady ? 1 : 0),
         (uint8_t)(motorAck ? 1 : 0),
         (uint8_t)(hasPosition ? (position & 0xFF) : 0xFF),
@@ -315,6 +318,7 @@ static void sendStatus() {
         (uint8_t)(statAcked & 0xFF), (uint8_t)(statAcked >> 8),
         (uint8_t)(statResent & 0xFF), (uint8_t)(statResent >> 8),
         (uint8_t)(statLost & 0xFF), (uint8_t)(statLost >> 8),
+        build[0], build[1], build[2], build[3],
     };
     sendLinkFrame(LINK_EVT_STATUS, payload, sizeof(payload));
 }

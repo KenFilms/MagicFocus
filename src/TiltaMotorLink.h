@@ -27,7 +27,7 @@ static const uint8_t LINK_CMD_SEQUENCE_PLAY = 0x08;
 static const uint8_t LINK_OPTION_DITHER = 0x01;  // flip the lowest position bit on every packet
 static const uint8_t LINK_OPTION_HANDLE_TIMING = 0x02;  // send with the Control Handle's timing
 static const uint8_t LINK_OPTION_RESEND = 0x04;  // send unacknowledged packets again
-static const uint8_t LINK_EVT_STATUS = 0x81;     // radioReady, motorAck, uint16 position, channel; the sniffer adds its mode
+static const uint8_t LINK_EVT_STATUS = 0x81;     // radioReady, motorAck, uint16 position, channel, mode, 4 counters, build
 static const uint8_t LINK_EVT_SNIFF = 0x82;      // sniffer firmware: one 802.15.4 frame it heard
 static const uint8_t LINK_EVT_SCAN = 0x83;       // sniffer firmware: frames heard on each channel 11..26
 static const uint8_t LINK_MAX_PAYLOAD = 140;     // a sniffed frame carries up to 127 bytes
@@ -57,6 +57,10 @@ static char scanSummary[24] = "";      // channels the last scan heard traffic o
 
 // The bridge's packet counters as last reported: sent, acknowledged by the motor, resent, lost.
 static uint16_t linkSent = 0, linkAcked = 0, linkResent = 0, linkLost = 0;
+// The bridge firmware's build: the first 4 bytes of its ELF SHA-256. Bridges from before it was
+// reported leave bridgeBuildKnown false (BridgeUpdate.h then updates them on a CoreS3).
+static bool bridgeBuildKnown = false;
+static uint32_t bridgeBuild = 0;
 
 // Updates the footer message and marks it for redraw.
 // @param message New status text to display.
@@ -132,6 +136,10 @@ static void handleStatusFrame(const uint8_t* payload, uint8_t payloadLength) {
         linkAcked = (uint16_t)(payload[8] | payload[9] << 8);
         linkResent = (uint16_t)(payload[10] | payload[11] << 8);
         linkLost = (uint16_t)(payload[12] | payload[13] << 8);
+    }
+    bridgeBuildKnown = payloadLength >= 18;
+    if (bridgeBuildKnown) {
+        bridgeBuild = (uint32_t)payload[14] << 24 | (uint32_t)payload[15] << 16 | (uint32_t)payload[16] << 8 | payload[17];
     }
     // A bridge that has just (re)started answering runs on its defaults until it hears the settings.
     if (lastBridgeStatusMs == 0 || millis() - lastBridgeStatusMs > H2_STATUS_TIMEOUT_MS) sendBridgeSettings();
@@ -336,20 +344,28 @@ static void pollMotorLink() {
     probeMotor();
 }
 
-// Restarts the H2 into its firmware, on boards where its chip enable and boot pins are wired.
-static void restartBridge() {
+// Resets the H2 with its chip enable pin, on boards where that and its boot pin are wired (CoreS3):
+// into its firmware, or with the boot pin held low into the ROM's download mode (BridgeUpdate.h).
+// @param downloadMode True to start the ROM loader instead of the firmware.
+static void resetBridge(bool downloadMode) {
     if (board.bridgeEnable < 0 || board.bridgeBoot < 0) return;
-    Serial.println("[BRIDGE] no answer, restarting the H2");
     pinMode(board.bridgeBoot, OUTPUT);
-    digitalWrite(board.bridgeBoot, HIGH);  // boot the firmware, not the ROM's download mode
+    digitalWrite(board.bridgeBoot, downloadMode ? LOW : HIGH);
     pinMode(board.bridgeEnable, OUTPUT);
     digitalWrite(board.bridgeEnable, LOW);
     delay(50);
     digitalWrite(board.bridgeEnable, HIGH);
-    delay(100);
+    delay(downloadMode ? 150 : 100);  // the boot pin is only read as the H2 comes out of reset
     // Hand both lines back to the H2 module's own pull-ups, as before.
     pinMode(board.bridgeBoot, INPUT);
     pinMode(board.bridgeEnable, INPUT);
+}
+
+// Restarts the H2 into its firmware, on boards where its chip enable and boot pins are wired.
+static void restartBridge() {
+    if (board.bridgeEnable < 0 || board.bridgeBoot < 0) return;
+    Serial.println("[BRIDGE] no answer, restarting the H2");
+    resetBridge(false);
 }
 
 // Opens the serial link to the H2 and announces the channel. A running bridge keeps the last position
