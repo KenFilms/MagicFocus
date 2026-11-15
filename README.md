@@ -15,11 +15,11 @@
 **Customizable characteristics Lidar autofocus** for a **Tilta Nucleus Nano II** focus motor, driven from an **M5Stack Core2** or
 **CoreS3** with a stacked **Module Gateway H2** as the radio.
 
-[![Install MagicFocus from your browser, in Chrome or Edge, onto a CoreS3, Core2 or Gateway H2](images/install-button.svg)](https://kenfilms.github.io/MagicFocus/#install)
+[![Install MagicFocus from your browser, in Chrome, Edge or Firefox, onto a CoreS3, Core2 or Gateway H2](images/install-button.svg)](https://kenfilms.github.io/MagicFocus/#install)
 
 **Easy install:** connect your CoreS3 or Core2 by USB and click **Install** in the
-[web installer](https://kenfilms.github.io/MagicFocus/#install). No tools to set up, and a CoreS3
-installs the Gateway H2's radio bridge itself.
+[web installer](https://kenfilms.github.io/MagicFocus/#install), in Chrome, Edge or Firefox 151 or
+later. No tools to set up, and a CoreS3 installs the Gateway H2's radio bridge itself.
 
 🛠️ **[Setup and Flashing Guide](#setting-up)**
 
